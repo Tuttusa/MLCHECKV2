@@ -5,6 +5,7 @@ from parsimonious.nodes import NodeVisitor
 from parsimonious.grammar import Grammar
 from parsimonious.nodes import NodeVisitor
 import random as rd
+import re
 
 
 class AssumptionVisitor(NodeVisitor):
