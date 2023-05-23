@@ -1,7 +1,4 @@
 
-# coding: utf-8
-
-# In[2]:
 
 
 import pandas as pd
@@ -14,7 +11,7 @@ from sklearn.tree import DecisionTreeClassifier
 import os
 import re
 from utils import ReadZ3Output
-
+import subprocess
 import time
 
 def getDataType(value, dfOrig, i):
@@ -226,6 +223,9 @@ def funcgetPath(tree, dfMain, noCex):
 
 #negating all the feature values of one counter example data instance 
 def funcPrunInst(dfOrig, dnn_flag):
+    with open('feNameType.csv') as csv_file:
+        reader = cv.reader(csv_file)
+        feName_type = dict(reader)
     #data set to hold set of candidate counter examples, refer to cand-set of prunInst algorithm
     with open('CandidateSetInst.csv', 'w', newline='') as csvfile:
         fieldnames = dfOrig.columns.values  
@@ -249,6 +249,7 @@ def funcPrunInst(dfOrig, dnn_flag):
     for j in range(0, dfRead.shape[0]):
         for i in range(0, dfRead.columns.values.shape[0]-noClass):
 
+
             #writing content of DecSmt.smt2 to another file named ToggleFeatureSmt.smt2
             if(dnn_flag == True):
                 funcWrite2File('DNNSmt.smt2')
@@ -257,12 +258,13 @@ def funcPrunInst(dfOrig, dnn_flag):
 
             fileTogFe = open('ToggleFeatureSmt.smt2', 'a') 
             name = str(dfRead.columns.values[i])
-            data_type = str(dfOrig.dtypes[i])
+            data_type = str(feName_type[dfOrig.columns.values[i]])
+
             if('int' in data_type):
                 digit = int(dataRead[j][i])
             elif('float' in data_type):
                 digit = float(dataRead[j][i])
-            digit = format(digit, '.10f')
+            #digit = format(digit, '.10f')
             digit = str(digit)
             if((int(paramDict['no_of_params']) == 1) and (paramDict['multi_label'] == 'True') and (paramDict['white_box_model'] =='Decision tree')):
                 fileTogFe.write("(assert (not (= "+ name +" "+ digit + "))) \n")
@@ -271,15 +273,38 @@ def funcPrunInst(dfOrig, dnn_flag):
             fileTogFe.close()
             util.storeAssumeAssert('ToggleFeatureSmt.smt2')
             util.addSatOpt('ToggleFeatureSmt.smt2')
-            os.system(r"z3 ToggleFeatureSmt.smt2 > FinalOutput.txt")
-            satFlag = ReadZ3Output.funcConvZ3OutToData(dfOrig)
-            #If sat then add the counter example to the candidate set, refer line 8,9 in prunInst algorithm
-            if satFlag:
-                dfSmt = pd.read_csv('TestDataSMT.csv')
-                dataAppend = dfSmt.values
-                with open('CandidateSetInst.csv', 'a', newline='') as csvfile:
-                    writer = cv.writer(csvfile)
-                    writer.writerows(dataAppend)
+            error_flag = True
+            time_flag = True
+            with open('FinalOutput.txt', 'w') as f:
+                try:
+                    if paramDict['solver'] == 'z3':
+                        #print('running z3')
+                        output = subprocess.check_call(['z3', 'ToggleFeatureSmt.smt2'], timeout=60, stdout=f, stderr=subprocess.STDOUT)
+                    elif paramDict['solver'] == 'yices':
+                        #print('running yieces')
+                        output = subprocess.check_call(['yices-smt2', 'ToggleFeatureSmt.smt2'], timeout=60, stdout=f,
+                                                       stderr=subprocess.STDOUT)
+                    elif paramDict['solver'] == 'cvc':
+
+                        output = subprocess.check_call(['cvc4', 'ToggleFeatureSmt.smt2'], timeout=60, stdout=f,
+                                                       stderr=subprocess.STDOUT)
+                except subprocess.TimeoutExpired:
+                    print('Execution timed out for pruning')
+                    time_flag = False
+                except subprocess.CalledProcessError as e:
+                    #print(f'Execution normal however unsat')
+                    error_flag = False
+
+                if error_flag and time_flag:
+
+                    satFlag = ReadZ3Output.funcConvZ3OutToData(dfOrig)
+                    #If sat then add the counter example to the candidate set, refer line 8,9 in prunInst algorithm
+                    if satFlag:
+                        dfSmt = pd.read_csv('TestDataSMT.csv')
+                        dataAppend = dfSmt.values
+                        with open('CandidateSetInst.csv', 'a', newline='') as csvfile:
+                            writer = cv.writer(csvfile)
+                            writer.writerows(dataAppend)
             
 
 def funcPrunBranch(dfOrig, tree_model):
@@ -313,7 +338,16 @@ def funcPrunBranch(dfOrig, tree_model):
                 return
             for i in range(noPathCond):
                 funcAddCond2File(i)
-                os.system(r"z3 ToggleBranchSmt.smt2 > FinalOutput.txt")
+                if paramDict['solver'] == 'z3':
+                    #print('running z3')
+                    os.system(r"z3 ToggleBranchSmt.smt2 > FinalOutput.txt")
+                elif paramDict['solver'] == 'yices':
+                    #print('running yieces')
+                    os.system(r"yices-smt2 ToggleBranchSmt.smt2 > FinalOutput.txt")
+                elif paramDict['solver'] == 'cvc':
+
+                    os.system(r"cvc4 ToggleBranchSmt.smt2 > FinalOutput.txt")
+                #os.system(r"z3 ToggleBranchSmt.smt2 > FinalOutput.txt")
                 #open("sat_out.txt", "a").writelines([l for l in open("FinalOutput.txt").readlines()])
                 satFlag = ReadZ3Output.funcConvZ3OutToData(dfOrig)
     

@@ -10,6 +10,7 @@ from joblib import load
 import random
 from scipy.stats import gmean
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 import os
 
 
@@ -33,33 +34,44 @@ def funcWriteXml(df):
     f.close()
 
 
-def func_init():
-    df = pd.read_csv('ecoli.csv')
-    funcWriteXml(df)
+def func_init(ml):
+    df = pd.read_csv('Mean_training.csv')
+    #funcWriteXml(df)
     data = df.values
     X = data[:, :-1]
     y = data[:, -1]
-    model = RandomForestRegressor()
+    model = DecisionTreeRegressor()
     model.fit(X, y)
 
-    propCheck(no_of_params=2, max_samples=1000, model_type='sklearn', model=model, param_list = ['x', 'y'],
-              xml_file='dataInput.xml', white_box_model='Decision tree', regression='yes', bound_cex=True,
-              no_of_class=1,
-              layer_size=5, no_of_layers=2, no_EPOCHS=50, no_of_train=1000, upper_bound=1, lower_bound=0)
+    propCheck(max_samples=1000, model_type='sklearn', model_path='Fairness_models/'+ml, instance_list = ['x', 'y'],
+              xml_file='dataInput.xml', white_box_model='DNN', regression='no', bound_cex=True, bound_list=['Class'],
+              bound_all_features=True, no_of_class=1, train_data_available=True, train_data_loc= 'Fairness_Datasets/bank.csv',train_ratio=10,
+              layer_size=[3],  no_EPOCHS=50, no_of_train=500, mul_cex=True, solver = 'z3')
 
     # Monotonicity
-    for i in range(0, 26):
+    for i in range(0, 15):
         if i == 0:
-            Assume('x[i] > y[i]', i)
+            Assume('x[i] != y[i]', i)
         else:
+            #Assume('0.01*abs(x[i] - y[i]) <= 0.1', i)
             Assume('x[i] = y[i]', i)
-    #Assert('model.predict(x) > model.predict(y)')
+    Assert('model.predict(x) == model.predict(y)')
 
 
    
 
 
 if __name__ == "__main__":
-    func_init()
+    model = ['DecisionTreeTitanic', 'GBTitanic', 'NBTitanic', 'RandomForestTitanic', 'LogRegTitanic', 'MLPTitanic']
+    model_bank = ['DecisionTreeBank', 'GBBank', 'NBBank', 'RandomForestBank', 'LogRegBank', 'MLPBank']
+    model_adult = ['DecisionTreeAdult', 'GBAdult', 'NBAdult', 'RandomForestAdult', 'LogRegAdult', 'MLPAdult']
+    model_credit = ['DecisionTreeCredit', 'GBCredit', 'NBCredit', 'RandomForestCredit', 'LogRegCredit', 'MLPCredit']
+    #model_credit = ['LogRegCredit', 'MLPCredit']
+    for ml in model_bank:
+        f = open('results_award', 'a')
+        f.write('\n-------------'+ml+'--------------------\n')
+        f.close()
+        for i in range(0, 5):
+            func_init(ml)
     
 

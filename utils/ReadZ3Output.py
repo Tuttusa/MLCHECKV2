@@ -6,6 +6,7 @@ from sklearn import tree
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from utils import util
+
 import fileinput
 import os
 import re
@@ -18,6 +19,10 @@ def funcConvZ3OutToData(df):
         paramDict = dict(reader)
     no_of_params = int(paramDict['no_of_params'])
     testMatrix = np.zeros(((no_of_params), df.shape[1]))
+    cvc_flag = False
+    if paramDict['solver'] == 'cvc':
+        cvc_flag = True
+
 
     if(os.stat('FinalOutput.txt').st_size > 0):
         with open('FinalOutput.txt') as f1:
@@ -57,12 +62,12 @@ def funcConvZ3OutToData(df):
                             if df.columns.values[j]+fe_add in file_content[i]:
                                 feature_name = df.columns.values[j]
                                 fe_flag = True
-                                if 'Int' in file_content[i]:
+                                if 'Int' in file_content[i] and not cvc_flag:
                                     i = i+1
                                     digit = int(re.search(r'\d+', file_content[i]).group(0))
                                     if('-' in file_content[i]):
                                         digit = 0-digit
-                                elif 'Real' in file_content[i]:
+                                elif 'Real' in file_content[i] and not cvc_flag:
                                     i = i+1
                                     if "(/" in file_content[i]:
                                         if('-' in file_content[i]):
@@ -81,6 +86,13 @@ def funcConvZ3OutToData(df):
                                         #digit = format(digit, '.5f')
                                         if('-' in file_content[i]):
                                             digit = 0-digit
+                                if paramDict['solver'] == 'yices':
+                                    i_str = file_content[i].split(' ')[-1].strip(')')
+                                    digit = int(i_str)
+                                elif paramDict['solver'] == 'cvc':
+                                    digit_str = file_content[i].split('()')[1].split(' ')[-1].strip(')')
+                                    #print(file_content[i] + '----------' + str(digit_str))
+                                    digit = int(digit_str)
                                 dfAgain.loc[param_no, feature_name] = digit
                                 i=i+1
                     if fe_flag == False:
@@ -92,6 +104,4 @@ def funcConvZ3OutToData(df):
         raise Exception("There is no solver installed in your system")
 
 
-            
-            
 

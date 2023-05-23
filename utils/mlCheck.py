@@ -62,10 +62,13 @@ class generateData:
     # Function to generate a new sample
     def funcGenData(self):
         tempData = np.zeros((1, len(self.nameArr)), dtype=object)
+
         #Change VM--- without any loop numpy random
         for k in range(0, len(self.nameArr)):
+
             fe_type = self.typeArr[k]
             if 'int' in fe_type:
+
                 tempData[0][k] = rd.randint(self.minArr[k], self.maxArr[k])
             else:
                 tempData[0][k] = rd.uniform(0, self.maxArr[k])
@@ -112,6 +115,7 @@ class generateData:
 
     # Function to take train data as test data
     def generateTestTrain(self, dfTrainData, train_ratio):
+        print(train_ratio)
         tst_pm = round((train_ratio * dfTrainData.shape[0])/100)
         data = dfTrainData.values
         testMatrix = np.zeros(((tst_pm + 1), dfTrainData.shape[1]))
@@ -170,26 +174,27 @@ class readXmlFile:
             r"""
 
             expr             = name / type / minimum / maximum / xmlStartDoc / xmlStartInps / xmlEndInps / xmlStartInp /
-                                                                        xmlEndInp / xmlStartValTag /xmlEndValTag
+                                                                        xmlEndInp / xmlStartOut / xmlEndOut
             name             = xmlStartNameTag feName xmlEndNameTag
             type             = xmlStartTypeTag feType xmlEndTypeTag
             minimum          = xmlStartMinTag number xmlEndMinTag
             maximum          = xmlStartMaxTag number xmlEndMaxTag
-            xmlStartDoc      = '<?xml version="1.0" encoding="UTF-8"?>'
-            xmlStartInps     = "<Inputs>"
-            xmlEndInps       = "<\Inputs>"
-            xmlStartInp      = "<Input>"
-            xmlEndInp        = "<\Input>"
-            xmlStartNameTag  = "<Feature-name>"
-            xmlEndNameTag    = "<\Feature-name>"
-            xmlStartTypeTag  = "<Feature-type>"
-            xmlEndTypeTag    = "<\Feature-type>"
-            xmlStartValTag   = "<Value>"
-            xmlEndValTag     = "<\Value>"
+            xmlStartDoc      = '<Schema>'
+            xmlStartInps     = "<input>"
+            xmlEndInps       = "</input>"
+            xmlStartOut      = "<output>"
+            xmlEndOut      = "</output>"
+            xmlStartInp      = "<feature>"
+            xmlEndInp        = "</feature>"
+            xmlStartNameTag  = "<name>"
+            xmlEndNameTag    = "</name>"
+            xmlStartTypeTag  = "<type>"
+            xmlEndTypeTag    = "</type>"
+           
             xmlStartMinTag   = "<minVal>"
-            xmlEndMinTag     = "<\minVal>"
+            xmlEndMinTag     = "</minVal>"
             xmlStartMaxTag   = "<maxVal>"
-            xmlEndMaxTag     = "<\maxVal>"
+            xmlEndMaxTag     = "</maxVal>"
             feName           = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
             feType           = ~"[A-Z 0-9]*"i
             number           = ~"[+-]?([0-9]*[.])?[0-9]+"
@@ -204,6 +209,8 @@ class readXmlFile:
         minValArr = []
         maxValArr = []
         feName_type = {}
+        feMinVal = {}
+        feMaxVal = {}
         fe_type = ''
         for lines in file_content:
             tree = grammar.parse(lines)
@@ -220,17 +227,29 @@ class readXmlFile:
             if dfObj.feMinVal != -99999:
                 if 'int' in fe_type:
                     minValArr.append(int(dfObj.feMinVal))
+                    feMinVal[fe_name] = int(dfObj.feMinVal)
                 else:
                     minValArr.append(dfObj.feMinVal)
+                    feMinVal[fe_name] = float(dfObj.feMinVal)
             if dfObj.feMaxVal != 0:
                 if 'int' in fe_type:
                     maxValArr.append(int(dfObj.feMaxVal))
+                    feMaxVal[fe_name] = int(dfObj.feMaxVal)
                 else:
                     maxValArr.append(dfObj.feMaxVal)
+                    feMaxVal[fe_name] = float(dfObj.feMaxVal)
         try:
             with open('feNameType.csv', 'w', newline='') as csv_file:
                 writer = cv.writer(csv_file)
                 for key, value in feName_type.items():
+                    writer.writerow([key, value])
+            with open('feMinValue.csv', 'w', newline='') as csv_file:
+                writer = cv.writer(csv_file)
+                for key, value in feMinVal.items():
+                    writer.writerow([key, value])
+            with open('feMaxValue.csv', 'w', newline='') as csv_file:
+                writer = cv.writer(csv_file)
+                for key, value in feMaxVal.items():
                     writer.writerow([key, value])
         except IOError:
             print("I/O error")
@@ -240,10 +259,7 @@ class readXmlFile:
             paramList= dict(reader)
 
         final_dataset = np.zeros((len(list(paramList)) * 5, len(list(feName_type))))
-        with open('AssumeOracle.csv', 'w', newline='') as csv_file:
-            writer = cv.writer(csv_file)
-            writer.writerow(list(feName_type))
-            writer.writerows(final_dataset)
+
 
         with open('FeatureValueRange.csv', 'w', newline='') as csv_file:
             writer = cv.writer(csv_file)
@@ -296,22 +312,25 @@ class makeOracleData:
 
 class propCheck:
     
-    def __init__(self, max_samples=None, deadline=None, model=None, no_of_params=None, xml_file='', mul_cex=False,
+    def __init__(self, max_samples=None, deadline=None, model=None, xml_file='', mul_cex=False,
                 white_box_model=None, no_of_layers=None, layer_size=None, no_of_class=None,
-                no_EPOCHS=None, train_data_available=False, train_data_loc='',
-                multi_label=False, model_type=None, model_path='', no_of_train=None, train_ratio=None,
-                regression = 'no', bound_cex = False, upper_bound=None, lower_bound=None, param_list = []):
+                no_EPOCHS=None, train_data_available=False, train_data_loc='', multi_label=False,
+                model_type=None, model_path='', no_of_train=None, train_ratio=None,
+                regression = 'no', bound_cex = False, upper_bound=None, lower_bound=None, instance_list = [],
+                nn_library='', bound_list=[], bound_all_features = False, solver=None):
         
         self.paramDict = {}
 
         param_list_dict = {}
-        keys = [x for x in range(0, len(param_list))]
+        keys = [x for x in range(0, len(instance_list))]
         for el in keys:
-            param_list_dict[keys[el]] = param_list[el]
+            param_list_dict[keys[el]] = instance_list[el]
         with open('param_list.csv', 'w', newline='') as csv_file:
             writer = cv.writer(csv_file)
             for key, value in param_list_dict.items():
                 writer.writerow([value, key])
+                
+        no_of_params = len(instance_list)
 
         if white_box_model == 'DNN' or multi_label:
             if no_of_class is None:
@@ -319,6 +338,13 @@ class propCheck:
             else:
                 self.paramDict['no_of_class'] = no_of_class
 
+        self.paramDict['bound_all_features'] = bound_all_features
+        self.paramDict['solver'] = solver
+        if nn_library == '':
+            self.paramDict['nn-library'] = 'sklearn'
+        else:
+            self.paramDict['nn-library'] = nn_library
+        self.paramDict['bound_list'] = bound_list
         if multi_label:
             multiLabelMain.multiLabelPropCheck(no_of_params=no_of_params, max_samples=max_samples, deadline=deadline, model=model,
                                                xml_file=xml_file, no_of_class=no_of_class, mul_cex=mul_cex,
@@ -336,6 +362,8 @@ class propCheck:
                 self.paramDict['bound_cex'] = bound_cex
                 self.paramDict['upper_bound'] = upper_bound
                 self.paramDict['lower_bound'] = lower_bound
+            else:
+                self.paramDict['bound_cex'] = bound_cex
         
             if deadline is None:
                 self.deadline = 1000
@@ -352,14 +380,14 @@ class propCheck:
             if self.white_box_model == 'DNN':
                 if (no_of_layers is None) and (layer_size is None):
                     self.no_of_layers = 2
-                    self.layer_size = 64
+                    self.layer_size = [10]
                 elif no_of_layers is None:
                     self.no_of_layers = 2
                     self.layer_size = layer_size
                 elif layer_size is None:
                     self.no_of_layers = no_of_layers
-                    self.layer_size = 64
-                elif (layer_size > 100) or(no_of_layers > 5):
+                    self.layer_size = [10]
+                elif (len(layer_size) > 100) or(no_of_layers > 5):
                     raise Exception("White-box model is too big to translate")
                     sys.exit(1)    
                 else:
@@ -388,6 +416,7 @@ class propCheck:
                     self.xml_file = xml_file
                     self.paramDict['xml_file'] = xml_file
                 except Exception as e:
+
                     raise Exception("File does not exist")
 
             if model_type == 'sklearn':
@@ -518,8 +547,8 @@ class runChecker:
             file_content = f1.readlines()
         file_content = [x.strip() for x in file_content]
         logic2assert.assert_rev(file_content[0])
-        import match_mutprediction
-        return match_mutprediction.func_match_mut_pred(X, model, arr_length)
+        import utils.match_mutprediction
+        return utils.match_mutprediction.func_match_mut_pred(X, model, arr_length)
 
 
     def addModelPred(self):
@@ -550,11 +579,17 @@ class runChecker:
         start_time = time.time()
         
         while count < self.max_samples:
-            trainDNN.functrainDNN()
-            #print('DNN count is:', count)
             print('Retrain count for DNN is:', retrain_count)
-            obj_dnl = DNN2logic.ConvertDNN2logic()
-            obj_dnl.funcDNN2logic()
+            if self.paramDict['nn-library'] == 'Pytorch':
+                trainDNN.functrainDNN()
+                #print('DNN count is:', count)
+                obj_dnl = DNN2logic.ConvertDNN2logic()
+                obj_dnl.funcDNN2logic()
+            else:
+                trainDNN.functrainDNNSklearn()
+                # print('DNN count is:', count)
+                obj_dnl = DNN2logic.ConvertDNNSklearn2logic()
+                obj_dnl.funcDNN2logic()
             util.storeAssumeAssert('DNNSmt.smt2')
             util.addSatOpt('DNNSmt.smt2')
             os.system(r"z3 DNNSmt.smt2 > FinalOutput.txt")
@@ -569,6 +604,9 @@ class runChecker:
                         print('No CEX is found')
                         return 0
                     print('Total number of cex found is:', round(dfCexSet.shape[0]/self.no_of_params))
+                    fileResult = open('results.txt', 'a')
+                    fileResult.write('\nTotal number of cex found is:'+str(round(dfCexSet.shape[0]/self.no_of_params)))
+                    fileResult.close()
                     self.addModelPred()
                     return round(dfCexSet.shape[0]/self.no_of_params) 
                 elif (count != 0) and (self.mul_cex == 'False'):
@@ -592,6 +630,9 @@ class runChecker:
                         if self.mul_cex == 'True':
                             dfCexSet = pd.read_csv('CexSet.csv')
                             print('Total number of cex found is:', round(dfCexSet.shape[0] / self.no_of_params))
+                            fileResult = open('results_aware_dnn.txt', 'a')
+                            fileResult.write('\nTotal number of cex found is:' + str(round(dfCexSet.shape[0] / self.no_of_params)))
+                            fileResult.close()
                             if round(dfCexSet.shape[0] / self.no_of_params) > 0:
                                 self.addModelPred()
                             return round(dfCexSet.shape[0] / self.no_of_params) + 1
@@ -620,6 +661,9 @@ class runChecker:
             self.addModelPred()
             print('Total number of cex found is:', round(dfCexSet.shape[0] / self.no_of_params))
             print('No. of Samples looked for counter example has exceeded the max_samples limit')
+            fileResult = open('results_aware_dnn.txt', 'a')
+            fileResult.write('\nTotal number of cex found is:' + str(round(dfCexSet.shape[0] / self.no_of_params)))
+            fileResult.close()
         else:
             print('No counter example has been found')
 
@@ -648,12 +692,21 @@ class runChecker:
                 tree2Logic.functree2LogicMain(tree, self.no_of_params)
                 util.storeAssumeAssert('DecSmt.smt2')
                 util.addSatOpt('DecSmt.smt2')
-                os.system(r"z3 DecSmt.smt2 > FinalOutput.txt")
+                if self.paramDict['solver'] == 'z3':
+                    #print('running z3')
+                    os.system(r"z3 DecSmt.smt2 > FinalOutput.txt")
+                elif self.paramDict['solver'] == 'yices':
+                    #print('running yieces')
+                    os.system(r"yices-smt2 DecSmt.smt2 > FinalOutput.txt")
+                elif self.paramDict['solver'] == 'cvc':
+
+                    os.system(r"cvc4 DecSmt.smt2 > FinalOutput.txt")
                 #open("sat_out.txt", "a").writelines([l for l in open("FinalOutput.txt").readlines()])
                 satFlag = ReadZ3Output.funcConvZ3OutToData(self.df)
                 if not satFlag:
                     if count == 0:
                         print('No CEX is found by the checker at the first trial')
+                        time.time() - start_time
                         return 0
                     elif (count != 0) and (self.mul_cex == 'True'):
                         dfCexSet = pd.read_csv('CexSet.csv')
@@ -661,6 +714,11 @@ class runChecker:
                             print('No CEX is found')
                             return 0
                         print('Total number of cex found is:', round(dfCexSet.shape[0]/self.no_of_params))
+                        fileResult = open('results_aware_decision-tree.txt', 'a')
+                        fileResult.write('\nTotal Time required is:' + str(time.time() - start_time))
+                        fileResult.write('\nTotal number of cex found is:' + str(
+                            round(dfCexSet.shape[0] / self.no_of_params)))
+                        fileResult.close()
                         self.addModelPred()
                         return round(dfCexSet.shape[0]/self.no_of_params) 
                     elif (count != 0) and (self.mul_cex == 'False'):
@@ -684,6 +742,11 @@ class runChecker:
                             if self.mul_cex == 'True':
                                 dfCexSet = pd.read_csv('CexSet.csv')
                                 print('Total number of cex found is:', round(dfCexSet.shape[0]/self.no_of_params))
+                                fileResult = open('results_aware_decision-tree.txt', 'a')
+                                fileResult.write('\nTotal Time required is:' + str(time.time() - start_time))
+                                fileResult.write('\nTotal number of cex found is:' + str(
+                                    round(dfCexSet.shape[0] / self.no_of_params)))
+                                fileResult.close()
                                 if round(dfCexSet.shape[0]/self.no_of_params) > 0:
                                     self.addModelPred()
                                 return round(dfCexSet.shape[0]/self.no_of_params) + 1
@@ -711,6 +774,10 @@ class runChecker:
             if (round(dfCexSet.shape[0]/self.no_of_params) > 0) and (count >= self.max_samples):
                 self.addModelPred()
                 print('Total number of cex found is:', round(dfCexSet.shape[0]/self.no_of_params))
+                fileResult = open('results_aware_decision-tree.txt', 'a')
+                fileResult.write('\nTotal Time required is:' + str(time.time() - start_time))
+                fileResult.write('\nTotal number of cex found is:'+str(round(dfCexSet.shape[0] / self.no_of_params)))
+                fileResult.close()
                 print('No. of Samples looked for counter example has exceeded the max_samples limit')
             else:
                 print('No counter example has been found')
@@ -720,16 +787,27 @@ def Assume(*args):
     grammar = Grammar(
         r"""
 
-    expr        = expr1/ expr2 
-    expr1       = ((inst_var "[" index_var "]")/ (number)) ws? logic_op (ws? ((inst_var "[" index_var "]")/ (number)) ws? logic_op ws?)* 
-    ((inst_var "[" index_var "]")/ (number))
-    expr2       = inst_var "[" number "]" ws? logic_op (ws? inst_var "[" number "]" ws? logic_op ws?)* inst_var "[" number "]"
-    inst_var    = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
-    index_var   = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
+    expr        = expr1 / expr2 / expr3 /expr4 /expr5 / expr6 /expr7
+    expr1       = expr_dist1 logic_op num_log
+    expr2       = expr_dist2 logic_op num_log
+    expr3       = classVar ws logic_op ws value
+    expr4       = classVarArr ws logic_op ws value
+    expr5       = classVar ws logic_op ws classVar
+    expr6       = classVarArr ws logic_op ws classVarArr
+    expr7       = "True"
+    expr_dist1  = op_beg?abs?para_open classVar ws arith_op ws classVar para_close op_end?
+    expr_dist2  = op_beg?abs?para_open classVarArr ws arith_op ws classVarArr para_close op_end?
+    classVar    = variable brack_open number brack_close
+    classVarArr = variable brack_open variable brack_close
+    para_open   = "("
+    para_close  = ")"
+    brack_open  = "["
+    brack_close = "]"
+    variable    = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
     logic_op    = ws (geq / leq / eq / neq / and / lt / gt) ws
     op_beg      = number arith_op
     op_end      = arith_op number
-    arith_op    = ws (add/sub/div/mul) ws
+    arith_op    = (add/sub/div/mul)
     abs         = "abs"
     add         = "+"
     sub         = "-"
@@ -743,6 +821,8 @@ def Assume(*args):
     neq         = "!="
     and         = "&"
     ws          = ~"\s*"
+    value       = ~"\d+"
+    num_log     = ~"[+-]?([0-9]*[.])?[0-9]+"
     number      = ~"[+-]?([0-9]*[.])?[0-9]+"
     """
     )
@@ -761,10 +841,7 @@ def Assume(*args):
     elif len(args) == 1:
         assumeVisitObj.visit(tree)
 
-    df = pd.read_csv('AssumeOracle.csv')
-    for i in range(0, df.shape[0]):
-        df.iloc[i]['Class'] = 0
-    df.to_csv('AssumeOracle.csv', index=False, header=True)
+
             
 
 def Assert(*args):    
@@ -869,7 +946,7 @@ class trainDecTree:
             itertaion_count = 0
             score_list = []
             classifier_list = []
-            tree_model = DecisionTreeRegressor()
+            tree_model = DecisionTreeRegressor(max_depth= 2)
 
             df = pd.read_csv('OracleData.csv')
             data = df.values
@@ -919,6 +996,12 @@ class trainDecTree:
             '''
         else:
             tree_model = DecisionTreeClassifier()
+            df = pd.read_csv('OracleData.csv')
+            data = df.values
+            X = data[:, :-1]
+            y = data[:, -1]
+            model = tree_model.fit(X, y)
+            '''
             while score < 0.80:
                 df = pd.read_csv('OracleData.csv')
                 data = df.values
@@ -949,6 +1032,6 @@ class trainDecTree:
                     gen_oracle = makeOracleData(model_mut)
                     gen_oracle.funcGenOracle()
                 #print(tree_rand_search.best_score_)
-
+            '''
         dump(model, 'Model/dectree_approx.joblib')
         return model

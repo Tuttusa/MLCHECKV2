@@ -71,7 +71,7 @@ class AssertionVisitor(NodeVisitor):
         f.write('import pandas as pd\n')
         f.write('import csv as cv\n')
         f.write('import numpy as np\n')
-        f.write('from utils import util\n')
+        f.write('from utils import util, mlCheck\n')
         f.write('from operator import add\n')
         if dist_flag:
             f.write('def manhattan_distance(a, b):\n')
@@ -125,7 +125,7 @@ class AssertionVisitor(NodeVisitor):
 
     # Monotonicity
     def visit_expr2(self, node, children):
-        f = open('match_mutprediction.py', 'w')
+        f = open('utils/match_mutprediction.py', 'w')
         self.write_pre_lines(f, False)
         print(self.currentOperator)
         f.write('        if not(model.predict(np.reshape(X[testIndx], (1, -1)))[0] ' + self.currentOperator +

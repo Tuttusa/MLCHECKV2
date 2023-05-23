@@ -9,6 +9,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 import pandas as pd
 import csv as cv
+from sklearn.neural_network import MLPRegressor, MLPClassifier
+from joblib import dump
 
 
 
@@ -80,5 +82,24 @@ def functrainDNN():
             net.linears[i].apply(constraints)
 
     MODEL_PATH = 'Model/dnn_model'
-    torch.save(net, MODEL_PATH)    
+    torch.save(net, MODEL_PATH)
 
+
+def functrainDNNSklearn():
+    df = pd.read_csv('OracleData.csv')
+    data = df.values
+    X = data[:, :-1]
+    y = data[:, -1]
+
+    with open('param_dict.csv') as csv_file:
+        reader = cv.reader(csv_file)
+        mydict = dict(reader)
+
+    layer_size = eval(mydict['layer_size'])
+    if mydict['regression'] == 'yes':
+        dnn_model = MLPRegressor(hidden_layer_sizes=layer_size, max_iter=300).fit(X, y)
+
+    else:
+        dnn_model = MLPClassifier(hidden_layer_sizes=layer_size).fit(X, y)
+
+    dump(dnn_model, 'Model/dnn_model_sklearn')

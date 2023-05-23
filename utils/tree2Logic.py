@@ -159,34 +159,50 @@ def funcConv(dfT, no_of_instances, paramDict):
     with open('feNameType.csv') as csv_file:
         reader = cv.reader(csv_file)
         feName_type = dict(reader)
+    with open('feMinValue.csv') as csv_file:
+        reader = cv.reader(csv_file)
+        feMinVal = dict(reader)
+    with open('feMaxValue.csv') as csv_file:
+        reader = cv.reader(csv_file)
+        feMaxVal = dict(reader)
     bound_cex = literal_eval(paramDict['bound_cex'])
-    upper_bound = float(paramDict['upper_bound'])
-    lower_bound = float(paramDict['lower_bound'])
+    bound_list = eval(paramDict['bound_list'])
+    bound_all = eval(paramDict['bound_all_features'])
 
     f = open('DecSmt.smt2', 'w')
+    if paramDict['solver'] != 'z3':
+        f.write('(set-logic QF_LIRA)\n')
+    if paramDict['solver'] == 'cvc':
+        f.write('(set-option :produce-models true)\n')
     #f.write('(set-option :pp.decimal true) \n (set-option :pp.decimal_precision 8) \n')
     for j in range(0, no_of_instances):
         for i in range (0, dfT.columns.values.shape[0]):
             tempStr = dfT.columns.values[i]
             fe_type = feName_type[tempStr]
-            min_val = dfT.iloc[:, i].min()
-            max_val = dfT.iloc[:, i].max() 
+            min_val = feMinVal[tempStr]
+            max_val = feMaxVal[tempStr]
         
             if 'int' in fe_type:
                 f.write("(declare-fun " + tempStr+str(j)+ " () Int)")
                 f.write('\n')
                 #adding range
-                if bound_cex:
-                    f.write("(assert (and (>= "+tempStr+str(j)+" "+str(min_val)+")"+" "+"(<= "+tempStr+str(j)+" "+str(max_val)+")))")
+                if bound_cex and tempStr in bound_list:
+                    f.write("(assert (and (>= "+tempStr+str(j)+" "+str(int(min_val))+")"+" "+"(<= "+tempStr+str(j)+" "+str(int(max_val))+")))")
+                elif bound_cex and bound_all:
+                    f.write("(assert (and (>= " + tempStr + str(j) + " " + str(
+                        int(min_val)) + ")" + " " + "(<= " + tempStr + str(j) + " " + str(int(max_val)) + ")))")
                 f.write('\n')
             elif('float' in fe_type):
                 f.write("(declare-fun " + tempStr+str(j)+ " () Real)")
                 f.write('\n')
                 #Adding range
-                if bound_cex:
+                if bound_cex and tempStr in bound_list:
                     #f.write("(assert (and (>= "+tempStr+str(j)+" "+str(format(min_val, '.3f'))+")"+" "+"(<= "+tempStr+str(j)+" "+str(format(max_val, '.3f'))+")))")
-                    f.write("(assert (and (>= " + tempStr + str(j) + " " + str(lower_bound) + ")" + " " + "(<= " + tempStr +
-                            str(j) + " " + str(upper_bound) + ")))")
+                    f.write("(assert (and (>= " + tempStr + str(j) + " " + str(min_val) + ")" + " " + "(<= " + tempStr +
+                            str(j) + " " + str(max_val) + ")))")
+                elif bound_cex and bound_all:
+                    f.write("(assert (and (>= " + tempStr + str(j) + " " + str(min_val) + ")" + " " + "(<= " + tempStr +
+                            str(j) + " " + str(max_val) + ")))")
                 f.write('\n') 
         f.write("; "+str(j)+"th element")
         f.write('\n')

@@ -35,6 +35,9 @@ class AssertionVisitor(NodeVisitor):
         with open('feNameType.csv') as csv_file:
             reader = cv.reader(csv_file)
             self.fename_type = dict(reader)
+        with open('param_list.csv') as csv_file:
+            reader = cv.reader(csv_file)
+            self.instance_dict = dict(reader)
     
     def generic_visit(self, node, children):
         pass
@@ -69,7 +72,8 @@ class AssertionVisitor(NodeVisitor):
         else:
             self.varList.append(node.text)
             if(self.mydict['no_assumption'] == 'False'):
-                num = str(int(re.search(r'\d+', self.mydict[node.text]).group(0)))
+
+                num = str(int(re.search(r'\d+', self.instance_dict[node.text]).group(0)))
                 self.mydict[node.text] = num[len(num)-1]
             else:
                 if(node.text in self.varMap):
@@ -379,7 +383,9 @@ class AssertionVisitor(NodeVisitor):
 
 
     def checkFeConsist(self):
-        if len(self.varList) == len(self.mydict)-3:
+
+
+        if len(self.varList) == len(self.mydict)-2:
             for el in self.varList:
                 if el not in self.mydict.keys():
                     raise Exception("Unknown feature vector")
