@@ -28,7 +28,12 @@ def funcWriteXml(df):
     
 ```
 
-After you have provided these two, next, we need the list of tha instance variables that you would use to write the property. This will basically help us to connect the property with the specification you have provided. To give you an example, suppose you want to test the fairness property, individual discrimination which requires two input instances to have same values except for the *protected attribute*, and the corresponding outputs remain the same. So, to specify this property, you would need two instance variables. For naming the variables, you could take any permissible variable name in Python. Let us take x and y for this. You need to then specify ```instance_list = ['x', 'y']``` an array of two variable names. You need to specify all these, by calling the function propCheck(). An excerpt of this function and how to load all the other functions
+After you have provided these two, next, we need the list of tha instance variables that you would use to write the property. This will basically help us to connect the property with the specification you have provided. To give you an example, suppose you want to test the fairness property, individual discrimination which requires two input instances to have same values except for the *protected attribute*, and the corresponding outputs remain the same. So, to specify this property, you would need two instance variables. For naming the variables, you could take any permissible variable name in Python. Let us take x and y for this. You need to then specify ```instance_list = ['x', 'y']``` an array of two variable names. You need to specify all these, by calling the function propCheck(). An excerpt of this function and how to load all the other functions can be written as follows:
+
+```
+from utils.mlCheck import Assume, Assert, propCheck
+
+
 
 Once you have specified these three important parameters, you could already start with testing the model. To specify the property you need to use ```Assume``` and ```Assert```. Again let us take the individual discrimination property with x and y as instance variables, and let us assume the instance size is 15 (i.e., the no. of input features are 15) and the protected attribute is gender, then you could specify the property as follows:
 
