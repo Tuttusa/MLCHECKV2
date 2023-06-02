@@ -28,5 +28,5 @@ def funcWriteXml(df):
     
 ```
 
-
+After you have provided these two, next, we need the list of tha instance variables that you would use to write the property. This will basically help us to connect the property with the specification you have provided. To give you an example, suppose you want to test the fairness property, individual discrimination which requires two input instances to have same values except for the *protected attribute*, and the corresponding outputs remain the same. So, to specify this property, you would need two instance variables. For naming the variables, you could take any permissible variable name in Python. Let us take x and y for this. You need to then specify ```instance_list = ['x', 'y']``` an array of two variable names. 
 
