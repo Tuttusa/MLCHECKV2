@@ -30,5 +30,15 @@ def funcWriteXml(df):
 
 After you have provided these two, next, we need the list of tha instance variables that you would use to write the property. This will basically help us to connect the property with the specification you have provided. To give you an example, suppose you want to test the fairness property, individual discrimination which requires two input instances to have same values except for the *protected attribute*, and the corresponding outputs remain the same. So, to specify this property, you would need two instance variables. For naming the variables, you could take any permissible variable name in Python. Let us take x and y for this. You need to then specify ```instance_list = ['x', 'y']``` an array of two variable names. 
 
-Once you have specified these three important parameters, you could already start with testing the model. To specify the property you need to use ```Assume``` and ```Assert```. Again let us take the individual discrimination property with x and y as instance variables, then you could specify the property as follows:
+Once you have specified these three important parameters, you could already start with testing the model. To specify the property you need to use ```Assume``` and ```Assert```. Again let us take the individual discrimination property with x and y as instance variables, and let us assume the instance size is 15 (i.e., the no. of input features are 15) and the protected attribute is gender, then you could specify the property as follows:
+
+```
+for i in range(0, 15):
+        if feature(i) == 'gender':
+            Assume('x[i] != y[i]', i)
+        else:
+            Assume('x[i] = y[i]', i)
+Assert('model.predict(x) == model.predict(y)')
+```
+So, here we are running the loop to the number of features and if the name of the feature is gender, which could be found by the feature(i) function, then their outputs which is denoted by ```model.predict(..)``` should be same.    
 
