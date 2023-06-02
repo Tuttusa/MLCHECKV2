@@ -1,4 +1,4 @@
-[alt text](https://github.com/arnabsharma91/MLCHECKV2/blob/main/MLCHECK-logo.JPG)
+![alt text](https://github.com/arnabsharma91/MLCHECKV2/blob/main/MLCHECK-logo.JPG)
 
 # MLCHECK
 
