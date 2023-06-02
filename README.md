@@ -32,9 +32,9 @@ After you have provided these two, next, we need the list of tha instance variab
 
 ```
 from utils.mlCheck import Assume, Assert, propCheck
-
-
-
+propCheck(model_path='Documents/..', instance_list = ['x', 'y'], xml_file='dataInput.xml')
+```
+Thera are many other parameters which you could set the details of which we describe later.
 Once you have specified these three important parameters, you could already start with testing the model. To specify the property you need to use ```Assume``` and ```Assert```. Again let us take the individual discrimination property with x and y as instance variables, and let us assume the instance size is 15 (i.e., the no. of input features are 15) and the protected attribute is gender, then you could specify the property as follows:
 
 ```
