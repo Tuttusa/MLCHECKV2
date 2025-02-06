@@ -1,0 +1,69 @@
+
+Error testing dt model at 2025-02-06 04:58:28.209692:
+Rule 'expr' didn't match at '<?xml version="1.0" ' (line 1, column 1).
+Error testing dt model at 2025-02-06 04:58:52.777586:
+Rule 'expr' didn't match at '<?xml version="1.0" ' (line 1, column 1).
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 185, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/MLCHECKV2/.venv/lib/python3.12/site-packages/parsimonious/grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/MLCHECKV2/.venv/lib/python3.12/site-packages/parsimonious/expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/MLCHECKV2/.venv/lib/python3.12/site-packages/parsimonious/expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<?xml version="1.0" ' (line 1, column 1).
+
+Error testing nn model at 2025-02-06 04:58:52.779448:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 185, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing dt model at 2025-02-06 05:00:54.869616:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing nn model at 2025-02-06 05:00:54.877392:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 445, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 21:40:18.192017:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing nn model at 2025-02-06 21:40:18.195578:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "/workspaces/MLCHECKV2/main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "/workspaces/MLCHECKV2/utils/mlCheck.py", line 445, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'

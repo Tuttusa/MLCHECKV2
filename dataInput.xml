@@ -1,499 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?> 
- <Inputs> 
-<Input> 
- <Feature-name>aaa<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7714685<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bbb<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6910756<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ccc<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6219980<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ddd<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7624575<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>eee<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7861938<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>fff<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7594272<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ggg<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7476390<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>hhh<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6746054<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>iii<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7491908<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>jjj<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7287979<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>kkk<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7216717<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>lll<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6418115<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>mmm<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7173693<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>nnn<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6463470<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ooo<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7316550<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ppp<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7801332<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>qqq<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8358974<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>rrr<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8267599<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>sss<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8512354<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ttt<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8390210<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>uuu<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7785481<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>vvv<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8479853<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>www<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8326474<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>xxx<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8479853<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>yyy<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8540926<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>zzz<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8390210<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>abc<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8298368<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bca<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8540926<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bcd<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7785481<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>adc<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8418781<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>aed<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8389744<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>afg<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ags<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8535731<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ahp<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ail<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ajm<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bkx<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.5976490<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ilm<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7225042<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>hmt<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7855345<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>xnl<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8520679<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>aop<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>aph<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8116417<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>aqr<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7544522<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>gru<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>asi<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>atn<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.5976490<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bus<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7583616<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>avq<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>awn<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6205861<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>axo<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.6263004<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>qyv<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>uzx<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>bap<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.7465867<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>nba<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>ncd<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>pdq<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>lek<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>mlf<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>gan<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>hur<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.4259008<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>iqp<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.0000000<\minVal> 
- <maxVal>0.8239361<\maxVal> 
- <\Value> 
- <\Input>
-<Input> 
- <Feature-name>Class<\Feature-name> 
- <Feature-type>float64<\Feature-type> 
- <Value> 
- <minVal>0.4259008<\minVal> 
- <maxVal>0.8656943<\maxVal> 
- <\Value> 
- <\Input>
-<\Inputs>
+<Inputs>
+<Input>
+<Feature-name>age</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>17</minVal>
+<maxVal>90</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>workclass</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>7</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>education</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>15</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>education_num</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>1</minVal>
+<maxVal>16</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>marital_status</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>6</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>occupation</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>13</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>relationship</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>5</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>race</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>4</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>sex</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>1</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>capital_gain</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>99999</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>capital_loss</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>4356</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>hours_per_week</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>1</minVal>
+<maxVal>99</maxVal>
+</Value>
+</Input>
+<Input>
+<Feature-name>native_country</Feature-name>
+<Feature-type>int64</Feature-type>
+<Value>
+<minVal>0</minVal>
+<maxVal>40</maxVal>
+</Value>
+</Input>
+</Inputs>
