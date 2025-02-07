@@ -12,7 +12,10 @@ def funcWriteXml(df):
         # Start directly with Inputs tag - removing XML declaration
         f.write('<Inputs>\n')
         
-        for i, col in enumerate(df.columns):
+        # Process only feature columns (exclude 'Class' if present)
+        feature_columns = [col for col in df.columns if col != 'Class']
+        
+        for col in feature_columns:
             f.write('<Input>\n')
             # Convert column names to match expected format
             col_name = col.replace('-', '_')  # Replace hyphens with underscores
@@ -31,6 +34,7 @@ def funcWriteXml(df):
         
         f.write('</Inputs>')
 
+
 # df = pd.read_csv(str(sys.argv[1]))
 # funcWriteXml(df)
 
@@ -46,4 +50,3 @@ def funcWriteXml(df):
 #             writer.writerow([key, value])
 # except IOError:
 #     print("I/O error")
-

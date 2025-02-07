@@ -12,8 +12,8 @@ no_of_params,2
 mul_cex_opt,False
 multi_label,False
 xml_file,dataInput.xml
-model_path,model_dt.joblib
-model_type,sklearn
+model_type,Pytorch
+model_path,model_nn.pt
 no_of_train,1000
 train_data_available,False
 train_data_loc,

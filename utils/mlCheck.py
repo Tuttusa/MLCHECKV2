@@ -63,15 +63,16 @@ class generateData:
     def funcGenData(self):
         tempData = np.zeros((1, len(self.nameArr)), dtype=object)
 
-        #Change VM--- without any loop numpy random
         for k in range(0, len(self.nameArr)):
-
             fe_type = self.typeArr[k]
             if 'int' in fe_type:
-
-                tempData[0][k] = rd.randint(self.minArr[k], self.maxArr[k])
+                # Convert min and max values to integers for integer features
+                min_val = int(self.minArr[k])
+                max_val = int(self.maxArr[k])
+                tempData[0][k] = rd.randint(min_val, max_val)
             else:
-                tempData[0][k] = rd.uniform(0, self.maxArr[k])
+                # Keep as float for non-integer features
+                tempData[0][k] = rd.uniform(self.minArr[k], self.maxArr[k])
         return tempData
 
     # Function to check whether a newly generated sample already exists in the list of samples
@@ -85,33 +86,61 @@ class generateData:
 
     # Function to combine several steps
     def funcGenerateTestData(self):
-        tst_pm = int(self.paramDict['no_of_train'])
-        testMatrix = np.zeros(((tst_pm + 1), len(self.nameArr)), dtype=object)
-        i = 0
-        while i <= tst_pm:
-            # Generating a test sample
-            temp = self.funcGenData()
-            # Checking whether that sample already in the test dataset
-            flg = self.funcCheckUniq(testMatrix, temp)
-            if not flg:
-                for j in range(0, len(self.nameArr)):
-                    testMatrix[i][j] = temp[0][j]
-                i = i + 1
+        import sys
+        
+        def log(msg):
+            print(msg, flush=True)
+            sys.stdout.flush()
+        
+        try:
+            log("Starting test data generation...")
+            log(f"Number of features: {len(self.nameArr)}")
+            log(f"Feature names: {self.nameArr}")
+            log(f"Feature types: {self.typeArr}")
+            log(f"Min values: {self.minArr}")
+            log(f"Max values: {self.maxArr}")
+            
+            tst_pm = int(self.paramDict['no_of_train'])
+            log(f"Generating {tst_pm} test samples...")
+            
+            # Generate test matrix without Class column initially
+            testMatrix = np.zeros((tst_pm + 1, len(self.nameArr)), dtype=object)
+            i = 0
+            while i <= tst_pm:
+                # Generating a test sample
+                temp = self.funcGenData()
+                # Checking whether that sample already in the test dataset
+                flg = self.funcCheckUniq(testMatrix, temp)
+                if not flg:
+                    for j in range(0, len(self.nameArr)):
+                        testMatrix[i][j] = temp[0][j]
+                    i = i + 1
+                    if i % 100 == 0:
+                        log(f"Generated {i} samples...")
 
-        with open('TestingData.csv', 'w', newline='') as csvfile:
-            writer = cv.writer(csvfile)
-            writer.writerow(self.nameArr)
-            writer.writerows(testMatrix)
+            log("Writing test data to CSV...")
+            with open('TestingData.csv', 'w', newline='') as csvfile:
+                writer = cv.writer(csvfile)
+                writer.writerow(self.nameArr)  # Write feature names without Class
+                writer.writerows(testMatrix)
+            log("Test data generation complete!")
 
-        if self.paramDict['train_data_available'] == 'True':
-            dfTrainData = pd.read_csv(self.paramDict['train_data_loc'])
-            self.generateTestTrain(dfTrainData, int(self.paramDict['train_ratio']))
-        with open('TestSet.csv', 'w', newline='') as csvfile:
-            writer = cv.writer(csvfile)
-            writer.writerow(self.nameArr)
-        with open('CexSet.csv', 'w', newline='') as csvfile:
-            writer = cv.writer(csvfile)
-            writer.writerow(self.nameArr)
+            if self.paramDict['train_data_available'] == 'True':
+                log("Processing training data...")
+                dfTrainData = pd.read_csv(self.paramDict['train_data_loc'])
+                self.generateTestTrain(dfTrainData, int(self.paramDict['train_ratio']))
+            
+            # Create empty TestSet.csv and CexSet.csv with proper headers
+            with open('TestSet.csv', 'w', newline='') as csvfile:
+                writer = cv.writer(csvfile)
+                writer.writerow(self.nameArr + ['Class'])  # Add Class for output files
+            with open('CexSet.csv', 'w', newline='') as csvfile:
+                writer = cv.writer(csvfile)
+                writer.writerow(self.nameArr + ['Class'])  # Add Class for output files
+                
+        except Exception as e:
+            log(f"Error in test data generation: {str(e)}")
+            raise
 
     # Function to take train data as test data
     def generateTestTrain(self, dfTrainData, train_ratio):
@@ -165,110 +194,79 @@ class dataFrameCreate(NodeVisitor):
 
 
 class readXmlFile:
-
     def __init__(self, fileName):
         self.fileName = fileName
+        self.feature_names = []
+        self.feature_types = []
+        self.min_values = []
+        self.max_values = []
 
     def funcReadXml(self):
-        grammar = Grammar(
-            r"""
+        import xml.etree.ElementTree as ET
+        import sys
+        
+        def log(msg):
+            print(msg, flush=True)
+            sys.stdout.flush()
 
-            expr             = name / type / minimum / maximum / xmlStartDoc / xmlStartInps / xmlEndInps / xmlStartInp /
-                                                                        xmlEndInp / xmlStartOut / xmlEndOut
-            name             = xmlStartNameTag feName xmlEndNameTag
-            type             = xmlStartTypeTag feType xmlEndTypeTag
-            minimum          = xmlStartMinTag number xmlEndMinTag
-            maximum          = xmlStartMaxTag number xmlEndMaxTag
-            xmlStartDoc      = '<Schema>'
-            xmlStartInps     = "<input>"
-            xmlEndInps       = "</input>"
-            xmlStartOut      = "<output>"
-            xmlEndOut      = "</output>"
-            xmlStartInp      = "<feature>"
-            xmlEndInp        = "</feature>"
-            xmlStartNameTag  = "<name>"
-            xmlEndNameTag    = "</name>"
-            xmlStartTypeTag  = "<type>"
-            xmlEndTypeTag    = "</type>"
-           
-            xmlStartMinTag   = "<minVal>"
-            xmlEndMinTag     = "</minVal>"
-            xmlStartMaxTag   = "<maxVal>"
-            xmlEndMaxTag     = "</maxVal>"
-            feName           = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
-            feType           = ~"[A-Z 0-9]*"i
-            number           = ~"[+-]?([0-9]*[.])?[0-9]+"
-            """
-        )
-
-        with open(self.fileName) as f1:
-            file_content = f1.readlines()
-        file_content = [x.strip() for x in file_content]
-        feNameArr = []
-        feTypeArr = []
-        minValArr = []
-        maxValArr = []
-        feName_type = {}
-        feMinVal = {}
-        feMaxVal = {}
-        fe_type = ''
-        for lines in file_content:
-            tree = grammar.parse(lines)
-            dfObj = dataFrameCreate()
-            dfObj.visit(tree)
-
-            if dfObj.feName is not None:
-                feNameArr.append(dfObj.feName)
-                fe_name = dfObj.feName
-            if dfObj.feType is not None:
-                feTypeArr.append(dfObj.feType)
-                fe_type = dfObj.feType
-                feName_type[fe_name] = fe_type
-            if dfObj.feMinVal != -99999:
-                if 'int' in fe_type:
-                    minValArr.append(int(dfObj.feMinVal))
-                    feMinVal[fe_name] = int(dfObj.feMinVal)
-                else:
-                    minValArr.append(dfObj.feMinVal)
-                    feMinVal[fe_name] = float(dfObj.feMinVal)
-            if dfObj.feMaxVal != 0:
-                if 'int' in fe_type:
-                    maxValArr.append(int(dfObj.feMaxVal))
-                    feMaxVal[fe_name] = int(dfObj.feMaxVal)
-                else:
-                    maxValArr.append(dfObj.feMaxVal)
-                    feMaxVal[fe_name] = float(dfObj.feMaxVal)
         try:
-            with open('feNameType.csv', 'w', newline='') as csv_file:
-                writer = cv.writer(csv_file)
-                for key, value in feName_type.items():
-                    writer.writerow([key, value])
-            with open('feMinValue.csv', 'w', newline='') as csv_file:
-                writer = cv.writer(csv_file)
-                for key, value in feMinVal.items():
-                    writer.writerow([key, value])
-            with open('feMaxValue.csv', 'w', newline='') as csv_file:
-                writer = cv.writer(csv_file)
-                for key, value in feMaxVal.items():
-                    writer.writerow([key, value])
-        except IOError:
-            print("I/O error")
+            log(f"Reading XML file: {self.fileName}")
+            
+            # Parse the XML file
+            tree = ET.parse(self.fileName)
+            root = tree.getroot()
+            log("Successfully parsed XML file")
 
-        with open('param_list.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            paramList= dict(reader)
+            # Process each Input element
+            input_count = 0
+            for input_elem in root.findall('Input'):
+                input_count += 1
+                try:
+                    # Extract feature name
+                    name = input_elem.find('Feature-name').text
+                    self.feature_names.append(name)
 
-        final_dataset = np.zeros((len(list(paramList)) * 5, len(list(feName_type))))
+                    # Extract feature type
+                    type_str = input_elem.find('Feature-type').text
+                    self.feature_types.append(type_str)
 
+                    # Extract min and max values
+                    value_elem = input_elem.find('Value')
+                    min_val = float(value_elem.find('minVal').text)
+                    max_val = float(value_elem.find('maxVal').text)
 
-        with open('FeatureValueRange.csv', 'w', newline='') as csv_file:
-            writer = cv.writer(csv_file)
-            writer.writerow(list(feName_type))
-            writer.writerow(minValArr)
-            writer.writerow(maxValArr)
+                    self.min_values.append(min_val)
+                    self.max_values.append(max_val)
+                    
+                except Exception as e:
+                    log(f"Error processing input element {input_count}: {str(e)}")
+                    raise
 
-        genDataObj = generateData(feNameArr, feTypeArr, minValArr, maxValArr)
-        genDataObj.funcGenerateTestData()
+            log(f"Processed {input_count} input elements")
+            log(f"Feature names: {self.feature_names}")
+            log(f"Feature types: {self.feature_types}")
+
+            # Create the feature specifications DataFrame
+            data = {
+                'Feature': self.feature_names,
+                'Type': self.feature_types,
+                'MinValue': self.min_values,
+                'MaxValue': self.max_values
+            }
+            df = pd.DataFrame(data)
+            log("Created feature specifications DataFrame")
+
+            # Save to CSV for later use
+            df.to_csv('DataFeatureSpec.csv', index=False)
+            log("Saved feature specifications to DataFeatureSpec.csv")
+
+            return True
+
+        except Exception as e:
+            log(f"Error reading XML file: {str(e)}")
+            import traceback
+            log(traceback.format_exc())
+            return False
 
 
 class makeOracleData:
@@ -280,34 +278,46 @@ class makeOracleData:
             self.paramDict = dict(reader)
 
     def funcGenOracle(self):
-        dfTest = pd.read_csv('TestingData.csv')
-        dataTest = dfTest.values
-        predict_list = np.zeros((1, dfTest.shape[0]))
-        X = dataTest[:, :-1]
+        try:
+            # Read test data
+            dfTest = pd.read_csv('TestingData.csv')
+            dataTest = dfTest.values
+            
+            # Initialize predictions array
+            predict_list = np.zeros((1, dfTest.shape[0]))
+            X = dataTest  # Use all columns since there's no Class column
 
-        if 'numpy.ndarray' in str(type(self.model)):
-            for i in range(0, X.shape[0]):
-                predict_list[0][i] = np.sign(np.dot(self.model, X[i]))
-                dfTest.loc[i, 'Class'] = int(predict_list[0][i])
-
-        else:
-            if self.paramDict['model_type'] == 'Pytorch':
-                X = torch.tensor(X, dtype=torch.float32)
-                predict_class = []
+            if 'numpy.ndarray' in str(type(self.model)):
                 for i in range(0, X.shape[0]):
-                    predict_prob = self.model(X[i].view(-1, X.shape[1]))
-                    predict_class.append(int(torch.argmax(predict_prob)))
-                for i in range(0, X.shape[0]):
-                    dfTest.loc[i, 'Class'] = predict_class[i]
+                    predict_list[0][i] = np.sign(np.dot(self.model, X[i]))
+                    dfTest.loc[i, 'Class'] = int(predict_list[0][i])
             else:
-                predict_class = self.model.predict(X)
-                for i in range(0, X.shape[0]):
-                    if self.paramDict['regression'] == 'yes':
-                        dfTest.loc[i, 'Class'] = predict_class[i]
-                    else:
-                        dfTest.loc[i, 'Class'] = int(predict_class[i])
+                if self.paramDict['model_type'] == 'Pytorch':
+                    X = torch.tensor(X, dtype=torch.float32)
+                    predict_class = []
+                    for i in range(0, X.shape[0]):
+                        predict_prob = self.model(X[i].view(-1, X.shape[1]))
+                        predict_class.append(int(torch.argmax(predict_prob)))
+                    dfTest['Class'] = predict_class
+                else:
+                    try:
+                        predict_class = self.model.predict(X)
+                        if self.paramDict['regression'] == 'yes':
+                            dfTest['Class'] = predict_class
+                        else:
+                            dfTest['Class'] = predict_class.astype(int)
+                    except Exception as e:
+                        raise Exception(f"Failed to make predictions: {str(e)}")
 
-        dfTest.to_csv('OracleData.csv', index=False, header=True)
+            # Save the oracle data
+            dfTest.to_csv('OracleData.csv', index=False)
+            
+        except pd.errors.EmptyDataError:
+            raise Exception("TestingData.csv is empty")
+        except FileNotFoundError:
+            raise Exception("TestingData.csv not found")
+        except Exception as e:
+            raise Exception(f"Error in oracle data generation: {str(e)}")
 
 
 class propCheck:
@@ -440,13 +450,23 @@ class propCheck:
                     else:
                         self.paramDict['model_type'] = 'Pytorch'
                         self.paramDict['model_path'] = model_path
-                        self.model = Net()
-                        self.model = torch.load(model_path)
-                        self.model.eval()
+                        try:
+                            # Load the model architecture first
+                            from main import SimpleNN
+                            # Get input size from the data
+                            df_specs = pd.read_csv('DataFeatureSpec.csv')
+                            input_size = len(df_specs['Feature'])
+                            # Initialize model with correct architecture
+                            self.model = SimpleNN(input_size)
+                            # Load the state dict
+                            self.model.load_state_dict(torch.load(model_path))
+                            self.model.eval()  # Set model to evaluation mode
+                        except Exception as e:
+                            raise Exception(f"Failed to load PyTorch model: {str(e)}")
                 else:
                     self.paramDict['model_type'] = 'Pytorch'
                     self.model = model
-                    self.model.eval()
+                    self.model.eval()  # Set model to evaluation mode
             elif model_type == 'others':
                 self.paramDict['model_type'] = 'others'
                 self.paramDict['model_path'] = model_path
@@ -480,41 +500,122 @@ class propCheck:
             except IOError:
                 print("I/O error")
 
-            genData = readXmlFile(self.xml_file)
-            genData.funcReadXml()
-            gen_oracle = makeOracleData(self.model)
-            gen_oracle.funcGenOracle()
+            # Step 1: Read XML and create feature specifications
+            xml_reader = readXmlFile(self.xml_file)
+            if not xml_reader.funcReadXml():
+                raise Exception("Failed to read XML file")
+            
+            # Step 2: Generate test data using feature specifications
+            try:
+                df_specs = pd.read_csv('DataFeatureSpec.csv')
+                # Create separate CSV files for feature types, min values, and max values
+                feature_type_dict = dict(zip(df_specs['Feature'], df_specs['Type']))
+                feature_min_dict = dict(zip(df_specs['Feature'], df_specs['MinValue']))
+                feature_max_dict = dict(zip(df_specs['Feature'], df_specs['MaxValue']))
+                
+                # Write feature types
+                with open('feNameType.csv', 'w', newline='') as csv_file:
+                    writer = cv.writer(csv_file)
+                    for key, value in feature_type_dict.items():
+                        writer.writerow([key, value])
+                
+                # Write min values
+                with open('feMinValue.csv', 'w', newline='') as csv_file:
+                    writer = cv.writer(csv_file)
+                    for key, value in feature_min_dict.items():
+                        writer.writerow([key, value])
+                
+                # Write max values
+                with open('feMaxValue.csv', 'w', newline='') as csv_file:
+                    writer = cv.writer(csv_file)
+                    for key, value in feature_max_dict.items():
+                        writer.writerow([key, value])
+                
+                data_generator = generateData(df_specs['Feature'].tolist(), df_specs['Type'].tolist(), 
+                                           df_specs['MinValue'].tolist(), df_specs['MaxValue'].tolist())
+                data_generator.funcGenerateTestData()
+            except Exception as e:
+                raise Exception(f"Failed to generate test data: {str(e)}")
+            
+            # Step 3: Create oracle data using the test data
+            try:
+                gen_oracle = makeOracleData(self.model)
+                gen_oracle.funcGenOracle()
+            except Exception as e:
+                raise Exception(f"Failed to create oracle data: {str(e)}")
 
 
 class runChecker:
     def __init__(self):
-        self.df = pd.read_csv('OracleData.csv')
-        with open('param_dict.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            self.paramDict = dict(reader)
+        try:
+            # Read OracleData.csv and ensure Class column exists
+            self.df = pd.read_csv('OracleData.csv')
+            if 'Class' not in self.df.columns:
+                raise Exception("OracleData.csv is missing the 'Class' column")
+            
+            # Load parameters from param_dict.csv
+            try:
+                with open('param_dict.csv') as csv_file:
+                    reader = cv.reader(csv_file)
+                    self.paramDict = {}
+                    for row in reader:
+                        if len(row) == 2:  # Only process valid key-value pairs
+                            self.paramDict[row[0]] = row[1]
+            except (FileNotFoundError, IOError) as e:
+                raise Exception(f"Error reading param_dict.csv: {str(e)}")
 
-        self.model_type = self.paramDict['model_type']
-        if 'model_path' in self.paramDict:
-            model_path = self.paramDict['model_path']
-            if self.model_type == 'Pytorch':
-                self.model = Net()
-                self.model = torch.load(model_path)
-                self.model.eval()
-            elif self.model_type == 'others':
-                self.model = get_deepset_model(10)
-                self.model = load_model(model_path)    
-                deep_we = []
-                for i in [1,2,4]:
-                    w = self.model.get_layer(index=i).get_weights()
-                    deep_we.append(w)
-                # load weights
-                for i, idx in enumerate([1,2,4]):
-                    self.model.get_layer(index=idx).set_weights(deep_we[i])
+            self.model_type = self.paramDict.get('model_type')
+            if not self.model_type:
+                raise Exception("model_type not found in param_dict.csv")
+
+            if 'model_path' in self.paramDict:
+                model_path = self.paramDict['model_path']
+                if self.model_type == 'Pytorch':
+                    try:
+                        # Load the model architecture first
+                        from main import SimpleNN
+                        # Get input size from the data
+                        df_specs = pd.read_csv('DataFeatureSpec.csv')
+                        input_size = len(df_specs['Feature'])
+                        # Initialize model with correct architecture
+                        self.model = SimpleNN(input_size)
+                        # Load the state dict
+                        self.model.load_state_dict(torch.load(model_path))
+                        self.model.eval()  # Set model to evaluation mode
+                    except FileNotFoundError:
+                        raise Exception(f"Model file not found at {model_path}")
+                    except Exception as e:
+                        raise Exception(f"Failed to load PyTorch model: {str(e)}")
+                elif self.model_type == 'others':
+                    try:
+                        self.model = get_deepset_model(10)
+                        self.model = load_model(model_path)    
+                        deep_we = []
+                        for i in [1,2,4]:
+                            w = self.model.get_layer(index=i).get_weights()
+                            deep_we.append(w)
+                        # load weights
+                        for i, idx in enumerate([1,2,4]):
+                            self.model.get_layer(index=idx).set_weights(deep_we[i])
+                    except Exception as e:
+                        raise Exception(f"Failed to load other model type: {str(e)}")
+                else:
+                    try:
+                        self.model = load(model_path)
+                    except Exception as e:
+                        raise Exception(f"Failed to load model from {model_path}: {str(e)}")
             else:
-                self.model = load(model_path)
-        else:
-            self.model = load('Model/MUT.joblib')
-
+                try:
+                    self.model = load('Model/MUT.joblib')
+                except Exception as e:
+                    raise Exception(f"Failed to load default model from Model/MUT.joblib: {str(e)}")
+                    
+        except pd.errors.EmptyDataError:
+            raise Exception("OracleData.csv is empty")
+        except FileNotFoundError:
+            raise Exception("OracleData.csv not found")
+        except Exception as e:
+            raise Exception(f"Error initializing runChecker: {str(e)}")
 
     def funcCreateOracle(self):
         dfTest = pd.read_csv('TestingData.csv')
@@ -633,14 +734,14 @@ class runChecker:
                             fileResult = open('results_aware_dnn.txt', 'a')
                             fileResult.write('\nTotal number of cex found is:' + str(round(dfCexSet.shape[0] / self.no_of_params)))
                             fileResult.close()
-                            if round(dfCexSet.shape[0] / self.no_of_params) > 0:
+                            if round(dfCexSet.shape[0]/self.no_of_params) > 0:
                                 self.addModelPred()
-                            return round(dfCexSet.shape[0] / self.no_of_params) + 1
+                            return round(dfCexSet.shape[0]/self.no_of_params) + 1
                         else:
                             print('No CEX is found by the checker')
                             return 0
                 else:
-                    count = count + round(dfCand.shape[0] / self.no_of_params)
+                    count = count + round(dfCand.shape[0]/self.no_of_params)
 
                 data = dfCand.values
                 X = data[:, :-1]
@@ -657,15 +758,16 @@ class runChecker:
             retrain_count = retrain_count+1
 
         dfCexSet = pd.read_csv('CexSet.csv')
-        if (round(dfCexSet.shape[0] / self.no_of_params) > 0) and (count >= self.max_samples):
+        if (round(dfCexSet.shape[0]/self.no_of_params) > 0) and (count >= self.max_samples):
             self.addModelPred()
-            print('Total number of cex found is:', round(dfCexSet.shape[0] / self.no_of_params))
+            print('Total number of cex found is:', round(dfCexSet.shape[0]/self.no_of_params))
             print('No. of Samples looked for counter example has exceeded the max_samples limit')
             fileResult = open('results_aware_dnn.txt', 'a')
-            fileResult.write('\nTotal number of cex found is:' + str(round(dfCexSet.shape[0] / self.no_of_params)))
+            fileResult.write('\nTotal number of cex found is:' + str(round(dfCexSet.shape[0]/self.no_of_params)))
             fileResult.close()
         else:
             print('No counter example has been found')
+
 
     def runPropCheck(self):
         retrain_flag = False
@@ -786,8 +888,7 @@ class runChecker:
 def Assume(*args):
     grammar = Grammar(
         r"""
-
-    expr        = expr1 / expr2 / expr3 /expr4 /expr5 / expr6 /expr7
+    expr        = expr1 / expr2 / expr3 / expr4 / expr5 / expr6 / expr7 / expr8
     expr1       = expr_dist1 logic_op num_log
     expr2       = expr_dist2 logic_op num_log
     expr3       = classVar ws logic_op ws value
@@ -795,15 +896,20 @@ def Assume(*args):
     expr5       = classVar ws logic_op ws classVar
     expr6       = classVarArr ws logic_op ws classVarArr
     expr7       = "True"
+    expr8       = method_call ws logic_op ws method_call
     expr_dist1  = op_beg?abs?para_open classVar ws arith_op ws classVar para_close op_end?
     expr_dist2  = op_beg?abs?para_open classVarArr ws arith_op ws classVarArr para_close op_end?
     classVar    = variable brack_open number brack_close
     classVarArr = variable brack_open variable brack_close
+    method_call = object_name dot method_name para_open variable para_close
+    object_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    method_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    dot         = "."
     para_open   = "("
     para_close  = ")"
     brack_open  = "["
     brack_close = "]"
-    variable    = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
+    variable    = ~"[a-zA-Z_][a-zA-Z0-9_]*"
     logic_op    = ws (geq / leq / eq / neq / and / lt / gt) ws
     op_beg      = number arith_op
     op_end      = arith_op number
@@ -820,8 +926,8 @@ def Assume(*args):
     eq          = "="
     neq         = "!="
     and         = "&"
-    ws          = ~"\s*"
-    value       = ~"\d+"
+    ws          = ~"[ \t\n\r]*"
+    value       = ~"[0-9]+"
     num_log     = ~"[+-]?([0-9]*[.])?[0-9]+"
     number      = ~"[+-]?([0-9]*[.])?[0-9]+"
     """
@@ -847,53 +953,47 @@ def Assume(*args):
 def Assert(*args):    
     grammar = Grammar(
     r"""
-    expr        = expr13/ expr1 / expr2/ expr3/ expr4/ expr5 / expr6/ expr7/ expr8 /expr9/ expr10/ expr11/ expr12
-    expr1       = classVar ws operator ws number
-    expr2       = classVar ws operator ws classVar
-    expr3       = classVar mul_cl_var ws operator ws neg? classVar mul_cl_var
-    expr4       = classVar ws? operator ws? min_symbol brack_open variable brack_close
-    expr5       = classVar ws? operator ws? max_symbol brack_open variable brack_close
-    expr6       = abs? brack_open classVar ws? arith_op1 ws? classVar brack_close ws? operator ws? (number arith_op2)?("const" arith_op2)?
-     "manhattan_distance" brack_open variable "," variable brack_close
-    expr7       =  classVar ws? operator ws? "const"
-    expr8       = "symmetric1" ws? brack_open classVar brack_close
-    expr9       = "symmetric2" ws? brack_open classVar brack_close
-    expr10      = min_symbol brack_open variable brack_close ws? operator ws? classVar ws? operator ws? max_symbol brack_open variable brack_close
-    expr11      = classVar ws? operator ws? "annihilator"
-    expr12      = "model.predict(x+y) == model.predict(x)+model.predict(y)"
-    expr13      = classVar ws? operator ws? number ws? arith_op1 ws? classVar
-    classVar    = class_pred brack_open variable brack_close
-    model_name  = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
-    class_pred  = model_name classSymbol
-    classSymbol = ~".predict"
-    const       = "const"
-    min_symbol  = "min"
-    max_symbol  = "max"
+    expr        = expr1 / expr2 / expr3 / expr4 / expr5 / expr6 / expr7 / expr8
+    expr1       = expr_dist1 logic_op num_log
+    expr2       = expr_dist2 logic_op num_log
+    expr3       = classVar ws logic_op ws value
+    expr4       = classVarArr ws logic_op ws value
+    expr5       = classVar ws logic_op ws classVar
+    expr6       = classVarArr ws logic_op ws classVarArr
+    expr7       = "True"
+    expr8       = method_call ws logic_op ws method_call
+    expr_dist1  = op_beg?abs?para_open classVar ws arith_op ws classVar para_close op_end?
+    expr_dist2  = op_beg?abs?para_open classVarArr ws arith_op ws classVarArr para_close op_end?
+    classVar    = variable brack_open number brack_close
+    classVarArr = variable brack_open variable brack_close
+    method_call = object_name dot method_name para_open variable para_close
+    object_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    method_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    dot         = "."
+    para_open   = "("
+    para_close  = ")"
+    brack_open  = "["
+    brack_close = "]"
+    variable    = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    logic_op    = ws (geq / leq / eq / neq / and / lt / gt) ws
+    op_beg      = number arith_op
+    op_end      = arith_op number
+    arith_op    = (add/sub/div/mul)
     abs         = "abs"
-    brack_open  = "("
-    brack_close = ")"
-    variable    = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
-    brack3open  = "["
-    brack3close = "]"
-    class_name  = ~"([a-zA-Z_][a-zA-Z0-9_]*)"
-    mul_cl_var  = brack3open class_name brack3close
-    operator    = ws (geq / leq / eq / gt/ lt/ neq / and/ implies) ws
-    arith_op1    = (add/sub/div/mul)
-    arith_op2    = (add/sub/div/mul)
     add         = "+"
     sub         = "-"
     div         = "/"
     mul         = "*"
     lt          = "<"
     gt          = ">"
-    geq         = ~">="
-    implies     = "=>"
-    neg         = "~"
-    leq         = "=<"
+    geq         = ">="
+    leq         = "<="
     eq          = "=="
     neq         = "!="
     and         = "&"
-    ws          = ~"\s*"
+    ws          = ~"[ \t\n\r]*"
+    value       = ~"[0-9]+"
+    num_log     = ~"[+-]?([0-9]*[.])?[0-9]+"
     number      = ~"[+-]?([0-9]*[.])?[0-9]+"
     """
     )

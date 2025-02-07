@@ -1,5 +1,3 @@
-
-
 from parsimonious.nodes import NodeVisitor
 from parsimonious.grammar import Grammar
 from itertools import groupby
@@ -20,25 +18,53 @@ class AssertionVisitor(NodeVisitor):
         self.current_arith_operator1 = ""
         self.negOp = ""
         self.varList = []
-        self.mydict = {}
+        self.mydict = {'no_mapping': 'False', 'no_assumption': 'False'}  # Default values
         self.varMap = {}
         self.feVal = 0
         self.count = 0
         self.const = False
         self.dfOracle = pd.read_csv('OracleData.csv')
-        with open('dict.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            self.mydict = dict(reader)  
-        with open('param_dict.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            self.paramDict = dict(reader)
-        with open('feNameType.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            self.fename_type = dict(reader)
-        with open('param_list.csv') as csv_file:
-            reader = cv.reader(csv_file)
-            self.instance_dict = dict(reader)
-    
+        
+        # Safely load dictionaries from files
+        try:
+            with open('dict.csv') as csv_file:
+                reader = cv.reader(csv_file)
+                for row in reader:
+                    if len(row) == 2:  # Only process valid key-value pairs
+                        self.mydict[row[0]] = row[1]
+        except (FileNotFoundError, IOError):
+            pass
+
+        try:
+            with open('param_dict.csv') as csv_file:
+                reader = cv.reader(csv_file)
+                self.paramDict = {}
+                for row in reader:
+                    if len(row) == 2:  # Only process valid key-value pairs
+                        self.paramDict[row[0]] = row[1]
+        except (FileNotFoundError, IOError):
+            self.paramDict = {}
+
+        try:
+            with open('feNameType.csv') as csv_file:
+                reader = cv.reader(csv_file)
+                self.fename_type = {}
+                for row in reader:
+                    if len(row) == 2:  # Only process valid key-value pairs
+                        self.fename_type[row[0]] = row[1]
+        except (FileNotFoundError, IOError):
+            self.fename_type = {}
+
+        try:
+            with open('param_list.csv') as csv_file:
+                reader = cv.reader(csv_file)
+                self.instance_dict = {}
+                for row in reader:
+                    if len(row) == 2:  # Only process valid key-value pairs
+                        self.instance_dict[row[0]] = row[1]
+        except (FileNotFoundError, IOError):
+            self.instance_dict = {}
+
     def generic_visit(self, node, children):
         pass
     
@@ -166,8 +192,6 @@ class AssertionVisitor(NodeVisitor):
 
     def visit_expr4(self, node, children):
         f = open('assertStmnt.txt', 'a')
-        f.write('(define-fun min2 ((x1 Real) (x2 Real)) Real \n')
-        f.write('    (ite (<= x1 x2) x1 x2))\n')
         f1 = open('logicAssert.txt', 'w')
         f1.write(node.text)
         f1.close()
@@ -252,17 +276,29 @@ class AssertionVisitor(NodeVisitor):
         f.close()
 
     def visit_expr8(self, node, children):
-        f1 = open('logicAssert.txt', 'w')
-        f1.write(node.text)
-        f1.close()
+        """Handle expressions comparing two method calls"""
+        if not hasattr(self, 'method_calls'):
+            self.method_calls = []
+            
+        # Get the method calls
+        method1 = str(children[0])
+        method2 = str(children[4])
+        
+        # Write the assertion
         f = open('assertStmnt.txt', 'a')
-        fe_list = list(self.fename_type.keys())
-        f.write('(assert (and (= '+fe_list[0]+'1 '+fe_list[1]+'0)'+'(= '+fe_list[1]+'1 '+fe_list[0]+'0)')
-        for i in range(2, len(self.fename_type) - 1):
-            f.write('(= '+fe_list[i]+'1 '+fe_list[i]+'0)')
-        f.write('))\n')
-        f.write('(assert (not (= Class0 Class1)))')
+        f.write('\n')
+        f.write("(assert (" + self.currentOperator + " " + method1 + " " + method2 + "))")
+        if self.currentOperator == 'not(= ':
+            f.write(')')
+        f.write('\n')
         f.close()
+
+        # Store mapping
+        self.mydict['method_call_1'] = method1
+        self.mydict['method_call_2'] = method2
+        self.mydict['no_assumption'] = 'False'
+        self.mydict['no_mapping'] = 'False'
+        self.storeMapping()
 
     def visit_expr9(self, node, children):
         f1 = open('logicAssert.txt', 'w')
@@ -393,3 +429,87 @@ class AssertionVisitor(NodeVisitor):
         else:
             raise Exception("No. of feature vectors do not match with the assumption")
             sys.exit(1)
+
+    def visit_method_call(self, node, children):
+        """Handle method calls like model.predict(x)"""
+        # Store the method call for later use
+        if not hasattr(self, 'method_calls'):
+            self.method_calls = []
+        self.method_calls.append(node.text)
+        return node.text
+
+    def storeMapping(self):
+        """Store the variable mapping to dict.csv"""
+        try:
+            with open('dict.csv', 'w', newline='') as csv_file:
+                writer = cv.writer(csv_file)
+                # Write default values first
+                writer.writerow(['no_mapping', str(self.mydict.get('no_mapping', 'False'))])
+                writer.writerow(['no_assumption', str(self.mydict.get('no_assumption', 'False'))])
+                # Write method calls if present
+                if 'method_call_1' in self.mydict:
+                    writer.writerow(['method_call_1', str(self.mydict['method_call_1'])])
+                if 'method_call_2' in self.mydict:
+                    writer.writerow(['method_call_2', str(self.mydict['method_call_2'])])
+                # Write any other mappings
+                for key, value in self.mydict.items():
+                    if key not in ['no_mapping', 'no_assumption', 'method_call_1', 'method_call_2']:
+                        writer.writerow([str(key), str(value)])
+        except IOError as e:
+            print(f"I/O error writing dict.csv: {str(e)}")
+
+def Assert(*args):
+    grammar = Grammar(
+        r"""
+    expr        = expr1 / expr2 / expr3 / expr4 / expr5 / expr6 / expr7 / expr8
+    expr1       = expr_dist1 logic_op num_log
+    expr2       = expr_dist2 logic_op num_log
+    expr3       = classVar ws logic_op ws value
+    expr4       = classVarArr ws logic_op ws value
+    expr5       = classVar ws logic_op ws classVar
+    expr6       = classVarArr ws logic_op ws classVarArr
+    expr7       = "True"
+    expr8       = method_call ws logic_op ws method_call
+    expr_dist1  = op_beg?abs?para_open classVar ws arith_op ws classVar para_close op_end?
+    expr_dist2  = op_beg?abs?para_open classVarArr ws arith_op ws classVarArr para_close op_end?
+    classVar    = variable brack_open number brack_close
+    classVarArr = variable brack_open variable brack_close
+    method_call = object_name dot method_name para_open variable para_close
+    object_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    method_name = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    dot         = "."
+    para_open   = "("
+    para_close  = ")"
+    brack_open  = "["
+    brack_close = "]"
+    variable    = ~"[a-zA-Z_][a-zA-Z0-9_]*"
+    logic_op    = ws (geq / leq / eq / neq / and / lt / gt) ws
+    op_beg      = number arith_op
+    op_end      = arith_op number
+    arith_op    = (add/sub/div/mul)
+    abs         = "abs"
+    add         = "+"
+    sub         = "-"
+    div         = "/"
+    mul         = "*"
+    lt          = "<"
+    gt          = ">"
+    geq         = ">="
+    leq         = "<="
+    eq          = "=="
+    neq         = "!="
+    and         = "&"
+    ws          = ~"[ \t\n\r]*"
+    value       = ~"[0-9]+"
+    num_log     = ~"[+-]?([0-9]*[.])?[0-9]+"
+    number      = ~"[+-]?([0-9]*[.])?[0-9]+"
+    """
+    )
+
+    tree = grammar.parse(args[0])
+    assertVisitObj = AssertionVisitor()
+    if len(args) == 2:
+        assertVisitObj.storeInd(args[1])
+        assertVisitObj.visit(tree)
+    else:
+        assertVisitObj.visit(tree)

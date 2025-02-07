@@ -266,6 +266,22 @@ class AssumptionVisitor(NodeVisitor):
         self.varMapDict['no_assumption'] = 'True'
         self.storeMapping()
 
+    def visit_expr8(self, node, children):
+        """Handle expressions comparing two method calls"""
+        f = open('assumeStmnt.txt', 'a')
+        f.write('\n')
+        f.write("(assert (" + self.logicOperator + " " + str(children[0]) + " " + str(children[4]) + "))")
+        if self.logicOperator == 'not(=':
+            f.write(')')
+        f.write('\n')
+        f.close()
+        self.storeMapping()
+
+    def visit_method_call(self, node, children):
+        """Handle method calls like model.predict(x)"""
+        self.varMapDict['method_call'] = node.text
+        return node.text
+
     def trojan_expr(self, node, children):
         f = open('assumeStmnt.txt', 'a')
         f.write('\n')
@@ -411,13 +427,15 @@ def Assume(*args):
     grammar = Grammar(
         r"""
 
-    expr        = expr1 / expr2 / expr3 /expr4 /expr5 / expr6
+    expr        = expr1 / expr2 / expr3 /expr4 /expr5 / expr6 / expr7 / expr8
     expr1       = expr_dist1 logic_op num_log
     expr2       = expr_dist2 logic_op num_log
     expr3       = classVar ws logic_op ws value
     expr4       = classVarArr ws logic_op ws value
     expr5       = classVar ws logic_op ws classVar
     expr6       = classVarArr ws logic_op ws classVarArr
+    expr7       = method_call ws logic_op ws method_call
+    expr8       = method_call ws logic_op ws value
     expr_dist1  = op_beg?abs?para_open classVar ws arith_op ws classVar para_close op_end?
     expr_dist2  = op_beg?abs?para_open classVarArr ws arith_op ws classVarArr para_close op_end?
     classVar    = variable brack_open number brack_close
@@ -447,6 +465,8 @@ def Assume(*args):
     value       = ~"\d+"
     num_log     = ~"[+-]?([0-9]*[.])?[0-9]+"
     number      = ~"[+-]?([0-9]*[.])?[0-9]+"
+    method_call = variable dot variable para_open variable para_close
+    dot         = "."
     """
     )
 
@@ -467,6 +487,3 @@ def Assume(*args):
 
 
 # In[ ]:
-
-
-

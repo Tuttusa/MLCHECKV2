@@ -1,4 +1,3 @@
-
 import pandas as pd
 import csv as cv
 import numpy as np
@@ -156,15 +155,35 @@ def funcGenBranch(dfT, rep, paramDict):
 
 
 def funcConv(dfT, no_of_instances, paramDict):
-    with open('feNameType.csv') as csv_file:
-        reader = cv.reader(csv_file)
-        feName_type = dict(reader)
-    with open('feMinValue.csv') as csv_file:
-        reader = cv.reader(csv_file)
-        feMinVal = dict(reader)
-    with open('feMaxValue.csv') as csv_file:
-        reader = cv.reader(csv_file)
-        feMaxVal = dict(reader)
+    try:
+        # Read feature types
+        with open('feNameType.csv') as csv_file:
+            reader = cv.reader(csv_file)
+            feName_type = {}
+            for row in reader:
+                if len(row) == 2:  # Only process valid key-value pairs
+                    feName_type[row[0]] = row[1]
+        
+        # Read min values
+        with open('feMinValue.csv') as csv_file:
+            reader = cv.reader(csv_file)
+            feMinVal = {}
+            for row in reader:
+                if len(row) == 2:  # Only process valid key-value pairs
+                    feMinVal[row[0]] = float(row[1])
+        
+        # Read max values
+        with open('feMaxValue.csv') as csv_file:
+            reader = cv.reader(csv_file)
+            feMaxVal = {}
+            for row in reader:
+                if len(row) == 2:  # Only process valid key-value pairs
+                    feMaxVal[row[0]] = float(row[1])
+    except (FileNotFoundError, IOError) as e:
+        raise Exception(f"Error reading feature specification files: {str(e)}")
+    except ValueError as e:
+        raise Exception(f"Error parsing feature values: {str(e)}")
+
     bound_cex = literal_eval(paramDict['bound_cex'])
     bound_list = eval(paramDict['bound_list'])
     bound_all = eval(paramDict['bound_all_features'])
@@ -239,5 +258,3 @@ def functree2LogicMain(tree, no_of_instances):
     df = pd.read_csv('OracleData.csv')
     tree_to_code(tree, df.columns, paramDict)
     funcConv(df, no_of_instances, paramDict)
-    
-

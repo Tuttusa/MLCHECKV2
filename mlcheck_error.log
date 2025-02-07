@@ -67,3 +67,1608 @@ Traceback (most recent call last):
     self.model.eval()
     ^^^^^^^^^^^^^^^
 AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 17:00:39.782080:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing nn model at 2025-02-06 17:00:39.832563:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 445, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 17:14:41.087690:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing nn model at 2025-02-06 17:14:41.150821:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 445, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 17:16:29.654907:
+Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+
+Error testing nn model at 2025-02-06 17:16:29.661368:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing dt model at 2025-02-06 17:19:50.156717:
+Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+
+Error testing nn model at 2025-02-06 17:19:50.247656:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing dt model at 2025-02-06 17:22:56.072809:
+Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+
+Error testing nn model at 2025-02-06 17:22:59.496239:
+Please provide the type of the model (Pytorch/sklearn)
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 456, in __init__
+    raise Exception("Please provide the type of the model (Pytorch/sklearn)")
+Exception: Please provide the type of the model (Pytorch/sklearn)
+
+Error testing dt model at 2025-02-06 17:26:01.053106:
+Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+
+Error testing nn model at 2025-02-06 17:26:09.639840:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 445, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 17:29:59.545390:
+Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 484, in __init__
+    genData.funcReadXml()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 216, in funcReadXml
+    tree = grammar.parse(lines)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'expr' didn't match at '<Inputs>' (line 1, column 1).
+
+Error testing dt model at 2025-02-06 17:50:44.338989:
+[Errno 2] No such file or directory: 'TestingData.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 431, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 228, in funcGenOracle
+    dfTest = pd.read_csv('TestingData.csv')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'TestingData.csv'
+
+Error testing nn model at 2025-02-06 17:50:44.464111:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 390, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 17:52:55.199518:
+[Errno 2] No such file or directory: 'TestingData.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 431, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 228, in funcGenOracle
+    dfTest = pd.read_csv('TestingData.csv')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'TestingData.csv'
+
+Error testing nn model at 2025-02-06 17:52:55.243211:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 390, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:06:00.487896:
+[Errno 2] No such file or directory: 'TestingData.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 431, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 228, in funcGenOracle
+    dfTest = pd.read_csv('TestingData.csv')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'TestingData.csv'
+
+Error testing nn model at 2025-02-06 18:06:00.604860:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 390, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:11:51.892681:
+[Errno 2] No such file or directory: 'TestingData.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 431, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 228, in funcGenOracle
+    dfTest = pd.read_csv('TestingData.csv')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'TestingData.csv'
+
+Error testing nn model at 2025-02-06 18:11:51.932821:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 390, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:15:07.016751:
+Failed to generate test data: 'float' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 438, in __init__
+    data_generator.funcGenerateTestData()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 93, in funcGenerateTestData
+    temp = self.funcGenData()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 72, in funcGenData
+    tempData[0][k] = rd.randint(self.minArr[k], self.maxArr[k])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\AppData\Roaming\uv\python\cpython-3.12.7-windows-x86_64-none\Lib\random.py", line 336, in randint
+    return self.randrange(a, b+1)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\AppData\Roaming\uv\python\cpython-3.12.7-windows-x86_64-none\Lib\random.py", line 301, in randrange
+    istart = _index(start)
+             ^^^^^^^^^^^^^
+TypeError: 'float' object cannot be interpreted as an integer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 440, in __init__
+    raise Exception(f"Failed to generate test data: {str(e)}")
+Exception: Failed to generate test data: 'float' object cannot be interpreted as an integer
+
+Error testing nn model at 2025-02-06 18:15:07.078963:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 390, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:15:50.987751:
+Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 446, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 249, in funcGenOracle
+    predict_class = self.model.predict(X)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 530, in predict
+    X = self._validate_X_predict(X, check_input)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 489, in _validate_X_predict
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2965, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2829, in _check_n_features
+    raise ValueError(
+ValueError: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 448, in __init__
+    raise Exception(f"Failed to create oracle data: {str(e)}")
+Exception: Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+Error testing nn model at 2025-02-06 18:15:51.041834:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 391, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:17:31.991260:
+Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 460, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 263, in funcGenOracle
+    predict_class = self.model.predict(X)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 530, in predict
+    X = self._validate_X_predict(X, check_input)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 489, in _validate_X_predict
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2965, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2829, in _check_n_features
+    raise ValueError(
+ValueError: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 462, in __init__
+    raise Exception(f"Failed to create oracle data: {str(e)}")
+Exception: Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+Error testing nn model at 2025-02-06 18:17:32.033164:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 405, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:18:22.275620:
+Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 472, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 275, in funcGenOracle
+    predict_class = self.model.predict(X)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 530, in predict
+    X = self._validate_X_predict(X, check_input)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 489, in _validate_X_predict
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2965, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2829, in _check_n_features
+    raise ValueError(
+ValueError: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 474, in __init__
+    raise Exception(f"Failed to create oracle data: {str(e)}")
+Exception: Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+Error testing nn model at 2025-02-06 18:18:22.337567:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 417, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:19:29.276238:
+Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 496, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 299, in funcGenOracle
+    predict_class = self.model.predict(X)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 530, in predict
+    X = self._validate_X_predict(X, check_input)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 489, in _validate_X_predict
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2965, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2829, in _check_n_features
+    raise ValueError(
+ValueError: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 498, in __init__
+    raise Exception(f"Failed to create oracle data: {str(e)}")
+Exception: Failed to create oracle data: X has 12 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+Error testing nn model at 2025-02-06 18:19:29.306451:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 441, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:26:17.062223:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 923, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:26:17.211939:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 450, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:44:43.250847:
+Rule 'brack_open' didn't match at '.predict(x) == model' (line 1, column 6).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 910, in Assert
+    tree = grammar.parse(args[0])
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\grammar.py", line 112, in parse
+    return self.default_rule.parse(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 141, in parse
+    node = self.match(text, pos=pos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\parsimonious\expressions.py", line 158, in match
+    raise error
+parsimonious.exceptions.ParseError: Rule 'brack_open' didn't match at '.predict(x) == model' (line 1, column 6).
+
+Error testing nn model at 2025-02-06 18:44:43.338270:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 450, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:47:22.511181:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 923, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:47:22.563371:
+Failed to load PyTorch model: 'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 450, in __init__
+    self.model.eval()  # Set model to evaluation mode
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 162, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 452, in __init__
+    raise Exception(f"Failed to load PyTorch model: {str(e)}")
+Exception: Failed to load PyTorch model: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 18:51:01.398613:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:51:02.268766:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing dt model at 2025-02-06 18:52:18.826230:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:53:13.179048:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 31, in __init__
+    self.mydict = dict(reader)
+                ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing dt model at 2025-02-06 18:56:35.440796:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 32, in __init__
+    self.mydict.update(dict(reader))
+                       ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:56:41.427696:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 32, in __init__
+    self.mydict.update(dict(reader))
+                       ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing dt model at 2025-02-06 18:57:51.632171:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 32, in __init__
+    self.mydict.update(dict(reader))
+                       ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing nn model at 2025-02-06 18:58:28.614928:
+dictionary update sequence element #1 has length 0; 2 is required
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 931, in Assert
+    assertVisitObj = assert2logic.AssertionVisitor()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\assert2logic.py", line 32, in __init__
+    self.mydict.update(dict(reader))
+                       ^^^^^^^^^^^^
+ValueError: dictionary update sequence element #1 has length 0; 2 is required
+
+Error testing dt model at 2025-02-06 19:04:30.457544:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 19:04:30.918725:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 19:44:23.831263:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 19:45:54.868913:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 19:46:26.509306:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 19:47:13.788633:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 19:47:17.115917:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 19:48:31.004746:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 19:48:51.473476:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 19:57:59.456113:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 19:58:16.959871:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 20:13:27.790689:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:13:44.876265:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 20:15:50.921123:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 945, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 723, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:16:44.318134:
+'collections.OrderedDict' object has no attribute 'eval'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 943, in Assert
+    obj_faircheck = runChecker()
+                    ^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 533, in __init__
+    self.model.eval()
+    ^^^^^^^^^^^^^^^
+AttributeError: 'collections.OrderedDict' object has no attribute 'eval'
+
+Error testing dt model at 2025-02-06 20:19:57.520810:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:20:09.265099:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 20:22:16.603644:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:23:05.984432:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 20:24:00.719159:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:25:38.785576:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 20:32:24.052868:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:37:33.661878:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 20:39:30.601598:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 20:41:09.960570:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 21:53:19.838905:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing nn model at 2025-02-06 21:53:46.638388:
+[Errno 2] No such file or directory: 'feNameType.csv'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 965, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 743, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 241, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 159, in funcConv
+    with open('feNameType.csv') as csv_file:
+         ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'feNameType.csv'
+
+Error testing dt model at 2025-02-06 22:18:16.886985:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 988, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 766, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-06 22:26:42.974374:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 988, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 766, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-06 23:46:08.624985:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 988, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 766, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-06 23:46:52.984709:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 988, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 766, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-06 23:51:19.011957:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-06 23:51:37.575568:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-06 23:53:38.454786:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-06 23:55:49.846538:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-06 23:58:28.235652:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 00:00:13.360810:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 00:02:33.815122:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 00:07:23.828345:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 00:36:33.466716:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 00:38:19.120819:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 00:52:14.982692:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 00:53:27.734829:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 00:56:38.547730:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 01:06:52.217263:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 185, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 01:14:26.191946:
+Failed to create oracle data: Error in oracle data generation: Failed to make predictions: X has 14 features, but DecisionTreeClassifier is expecting 13 features as input.
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 312, in funcGenOracle
+    predict_class = self.model.predict(X)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 530, in predict
+    X = self._validate_X_predict(X, check_input)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\tree\_classes.py", line 489, in _validate_X_predict
+    X = validate_data(
+        ^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2965, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\sklearn\utils\validation.py", line 2829, in _check_n_features
+    raise ValueError(
+ValueError: X has 14 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 319, in funcGenOracle
+    raise Exception(f"Failed to make predictions: {str(e)}")
+Exception: Failed to make predictions: X has 14 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 552, in __init__
+    gen_oracle.funcGenOracle()
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 329, in funcGenOracle
+    raise Exception(f"Error in oracle data generation: {str(e)}")
+Exception: Error in oracle data generation: Failed to make predictions: X has 14 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 164, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 554, in __init__
+    raise Exception(f"Failed to create oracle data: {str(e)}")
+Exception: Failed to create oracle data: Error in oracle data generation: Failed to make predictions: X has 14 features, but DecisionTreeClassifier is expecting 13 features as input.
+
+Error testing nn model at 2025-02-07 01:14:26.278490:
+Failed to load PyTorch model: Error(s) in loading state_dict for SimpleNN:
+	size mismatch for layers.0.weight: copying a param with shape torch.Size([64, 13]) from checkpoint, the shape in current model is torch.Size([64, 14]).
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 471, in __init__
+    self.model.load_state_dict(torch.load(model_path))
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\.venv\Lib\site-packages\torch\nn\modules\module.py", line 2581, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for SimpleNN:
+	size mismatch for layers.0.weight: copying a param with shape torch.Size([64, 13]) from checkpoint, the shape in current model is torch.Size([64, 14]).
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 164, in test_individual_discrimination
+    propCheck(
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 474, in __init__
+    raise Exception(f"Failed to load PyTorch model: {str(e)}")
+Exception: Failed to load PyTorch model: Error(s) in loading state_dict for SimpleNN:
+	size mismatch for layers.0.weight: copying a param with shape torch.Size([64, 13]) from checkpoint, the shape in current model is torch.Size([64, 14]).
+
+Error testing dt model at 2025-02-07 01:17:34.928553:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 01:17:39.993669:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1025, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 803, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 01:20:54.804711:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1016, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 794, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 01:20:55.754378:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1016, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 794, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing dt model at 2025-02-07 01:24:07.679782:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1016, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 794, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'
+
+Error testing nn model at 2025-02-07 01:24:08.674389:
+'Class'
+Traceback (most recent call last):
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\main.py", line 186, in test_individual_discrimination
+    Assert('model.predict(x) == model.predict(y)')
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 1016, in Assert
+    if obj_faircheck.runPropCheck() == 1:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\mlCheck.py", line 794, in runPropCheck
+    tree2Logic.functree2LogicMain(tree, self.no_of_params)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 260, in functree2LogicMain
+    funcConv(df, no_of_instances, paramDict)
+  File "C:\Users\gen06917\PycharmProjects\MLCHECKV2\utils\tree2Logic.py", line 200, in funcConv
+    fe_type = feName_type[tempStr]
+              ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'Class'

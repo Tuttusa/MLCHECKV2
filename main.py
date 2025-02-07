@@ -133,12 +133,13 @@ def train_model(X, y, model_type='dt'):
     return model
 
 
-def test_individual_discrimination(X, protected_features=['sex', 'race']):
+def test_individual_discrimination(X, y, protected_features=['sex', 'race']):
     """
     Test both decision tree and neural network models for individual discrimination
     
     Args:
         X: Feature matrix with column names
+        y: Target labels
         protected_features: List of protected attribute names
     """
     # Define column names from Adult dataset
@@ -148,9 +149,9 @@ def test_individual_discrimination(X, protected_features=['sex', 'race']):
         'capital_gain', 'capital_loss', 'hours_per_week', 'native_country'
     ]
     
-    # Create DataFrame and generate XML spec
+    # Create DataFrame with features only (no target)
     df = pd.DataFrame(X, columns=columns)
-    funcWriteXml(df)
+    funcWriteXml(df)  # This will now only write feature columns to XML
     
     # Test both model types
     for model_type in ['dt', 'nn']:
@@ -163,7 +164,7 @@ def test_individual_discrimination(X, protected_features=['sex', 'race']):
                 model_path=model_path,
                 instance_list=['x', 'y'],
                 xml_file='dataInput.xml',
-                model_type='Sklearn' if model_type=='dt' else 'Pytorch'  # Fixed case sensitivity
+                model_type='sklearn' if model_type=='dt' else 'Pytorch'  # Fixed case sensitivity
             )
             
             # Test for each protected feature
@@ -191,6 +192,7 @@ def test_individual_discrimination(X, protected_features=['sex', 'race']):
                 f.write(f"\nError testing {model_type} model at {datetime.now()}:\n")
                 f.write(str(e))
                 f.write("\n" + traceback.format_exc())
+
 def main():
     # Get Adult dataset
     X, y, sensitive = get_adult_dataset()
@@ -200,7 +202,7 @@ def main():
     nn_model = train_model(X, y, model_type='nn')
     
     # Test for discrimination
-    test_individual_discrimination(X, protected_features=['sex', 'race'])
+    test_individual_discrimination(X, y, protected_features=['sex', 'race'])
 
 if __name__ == "__main__":
     main()
